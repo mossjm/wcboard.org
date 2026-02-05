@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  /* Cranberry color palette */
+  --color-cranberry-50: #fef2f2;
+  --color-cranberry-100: #fde3e3;
+  --color-cranberry-200: #fccbcb;
+  --color-cranberry-300: #f9a3a3;
+  --color-cranberry-400: #f36b6b;
+  --color-cranberry-500: #e83d3d;
+  --color-cranberry-600: #c41e1e;
+  --color-cranberry-700: #a31818;
+  --color-cranberry-800: #871818;
+  --color-cranberry-900: #6d1a1a;
+  --color-cranberry-950: #3b0808;
+
+  /* Earth tones */
+  --color-earth-50: #faf8f5;
+  --color-earth-100: #f3efe8;
+  --color-earth-200: #e6ddd0;
+  --color-earth-300: #d4c4ad;
+  --color-earth-400: #c0a788;
+  --color-earth-500: #b2926d;
+  --color-earth-600: #a58061;
+  --color-earth-700: #8a6a52;
+  --color-earth-800: #715746;
+  --color-earth-900: #5d493b;
+  --color-earth-950: #31261f;
+
+  /* Forest greens */
+  --color-forest-50: #f0f9f1;
+  --color-forest-100: #dbf0de;
+  --color-forest-200: #b9e1c0;
+  --color-forest-300: #8bcc96;
+  --color-forest-400: #5ab168;
+  --color-forest-500: #3a964c;
+  --color-forest-600: #2a783b;
+  --color-forest-700: #235f31;
+  --color-forest-800: #1f4d29;
+  --color-forest-900: #1b3f23;
+  --color-forest-950: #0d2314;
+
+  /* Warm neutral */
+  --color-warm-50: #fdfcfb;
+  --color-warm-100: #f9f7f4;
+  --color-warm-200: #f2ede6;
+  --color-warm-300: #e8dfd3;
+  --color-warm-400: #d5c4ae;
+  --color-warm-500: #c3aa8d;
+  --color-warm-600: #a88c6e;
+  --color-warm-700: #8c7359;
+  --color-warm-800: #745f4b;
+  --color-warm-900: #604f3f;
+  --color-warm-950: #332921;
+
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: #1a1a1a;
+  background-color: var(--color-warm-50);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
