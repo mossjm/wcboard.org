@@ -1,52 +1,31 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
 ---
 
 <Layout title="Consumers" description="Discover Wisconsin cranberries — the state's #1 fruit. Learn about cranberry nutrition, health benefits, and where to find consumer resources.">
   
-  <!-- Page Hero -->
-  <section class="relative bg-cranberry-950 overflow-hidden">
-    <div class="absolute inset-0">
-      <img 
-        src="/images/stock/cranberry-closeup-3.jpg"
-        alt="Close-up of Wisconsin cranberry harvest"
-        class="w-full h-full object-cover opacity-30"
-        loading="eager"
-      />
-      <div class="absolute inset-0 bg-gradient-to-r from-cranberry-950/90 to-cranberry-950/60"></div>
-    </div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-      <p class="text-cranberry-300 text-sm font-semibold uppercase tracking-widest mb-4">Experience Wisconsin Cranberries</p>
-      <h1 class="text-4xl sm:text-5xl font-bold text-white font-heading mb-6 max-w-3xl leading-tight">
-        Wisconsin's State Fruit
-      </h1>
-      <p class="text-cranberry-100 text-lg max-w-2xl leading-relaxed">
-        From bog to table — discover why Wisconsin cranberries are loved around the world for their taste, nutrition, and heritage.
-      </p>
-    </div>
-  </section>
+  <Hero
+    title="Wisconsin's State Fruit"
+    subtitle="Experience Wisconsin Cranberries"
+    description="From bog to table — discover why Wisconsin cranberries are loved around the world for their taste, nutrition, and heritage."
+    image="/images/stock/cranberry-closeup-3.jpg"
+    imageAlt="Close-up of ripe Wisconsin cranberries ready for harvest"
+  />
 
-  <!-- Breadcrumb -->
-  <nav class="bg-warm-100 border-b border-warm-200" aria-label="Breadcrumb">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-      <ol class="flex items-center gap-2 text-sm text-earth-500">
-        <li><a href="/" class="hover:text-cranberry-700 transition-colors">Home</a></li>
-        <li><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd"></path></svg></li>
-        <li class="text-cranberry-800 font-medium">Consumers</li>
-      </ol>
-    </div>
-  </nav>
+  <Breadcrumb items={[{ label: 'Consumers' }]} />
 
   <!-- Cranberry Fun Facts -->
-  <section class="py-20 lg:py-28 bg-warm-50">
+  <section class="py-20 lg:py-28 bg-warm-50" aria-labelledby="facts-heading">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         <div>
-          <h2 class="text-3xl font-bold text-cranberry-950 font-heading mb-6">Did You Know?</h2>
+          <h2 id="facts-heading" class="text-3xl font-bold text-cranberry-950 font-heading mb-6">Did You Know?</h2>
           <div class="space-y-5">
             <div class="flex items-start gap-4">
-              <div class="w-10 h-10 bg-cranberry-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <span class="text-cranberry-700 font-bold">🍒</span>
+              <div class="w-10 h-10 bg-cranberry-100 rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                <span class="text-cranberry-700 font-bold text-lg">🍒</span>
               </div>
               <div>
                 <h3 class="font-bold text-cranberry-900">Native to Wisconsin</h3>
@@ -54,8 +33,8 @@ import Layout from '../layouts/Layout.astro';
               </div>
             </div>
             <div class="flex items-start gap-4">
-              <div class="w-10 h-10 bg-cranberry-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <span class="text-cranberry-700 font-bold">🏆</span>
+              <div class="w-10 h-10 bg-cranberry-100 rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                <span class="text-cranberry-700 font-bold text-lg">🏆</span>
               </div>
               <div>
                 <h3 class="font-bold text-cranberry-900">#1 in America</h3>
@@ -63,8 +42,8 @@ import Layout from '../layouts/Layout.astro';
               </div>
             </div>
             <div class="flex items-start gap-4">
-              <div class="w-10 h-10 bg-cranberry-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <span class="text-cranberry-700 font-bold">🥤</span>
+              <div class="w-10 h-10 bg-cranberry-100 rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                <span class="text-cranberry-700 font-bold text-lg">🥤</span>
               </div>
               <div>
                 <h3 class="font-bold text-cranberry-900">Rich in Vitamin C</h3>
@@ -72,8 +51,8 @@ import Layout from '../layouts/Layout.astro';
               </div>
             </div>
             <div class="flex items-start gap-4">
-              <div class="w-10 h-10 bg-cranberry-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <span class="text-cranberry-700 font-bold">🌿</span>
+              <div class="w-10 h-10 bg-cranberry-100 rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                <span class="text-cranberry-700 font-bold text-lg">🌿</span>
               </div>
               <div>
                 <h3 class="font-bold text-cranberry-900">Antioxidant Powerhouse</h3>
@@ -81,8 +60,8 @@ import Layout from '../layouts/Layout.astro';
               </div>
             </div>
             <div class="flex items-start gap-4">
-              <div class="w-10 h-10 bg-cranberry-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <span class="text-cranberry-700 font-bold">🏡</span>
+              <div class="w-10 h-10 bg-cranberry-100 rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                <span class="text-cranberry-700 font-bold text-lg">🏡</span>
               </div>
               <div>
                 <h3 class="font-bold text-cranberry-900">Family-Farmed</h3>
@@ -90,8 +69,8 @@ import Layout from '../layouts/Layout.astro';
               </div>
             </div>
             <div class="flex items-start gap-4">
-              <div class="w-10 h-10 bg-cranberry-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <span class="text-cranberry-700 font-bold">🐦</span>
+              <div class="w-10 h-10 bg-cranberry-100 rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                <span class="text-cranberry-700 font-bold text-lg">🐦</span>
               </div>
               <div>
                 <h3 class="font-bold text-cranberry-900">"Crane Berry"</h3>
@@ -104,9 +83,10 @@ import Layout from '../layouts/Layout.astro';
         <div>
           <img 
             src="/images/stock/cranberry-closeup-4.jpg"
-            alt="Fresh Wisconsin cranberries during harvest"
+            alt="Close-up view of fresh ripe Wisconsin cranberries during harvest season"
             class="rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
             loading="lazy"
+            decoding="async"
           />
         </div>
       </div>
@@ -114,22 +94,24 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- WSCGA Redirect -->
-  <section class="py-20 lg:py-28 bg-cranberry-800">
+  <section class="py-20 lg:py-28 bg-cranberry-800" aria-labelledby="consumer-cta-heading">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="w-20 h-20 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+      <div class="w-20 h-20 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6" aria-hidden="true">
         <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"></path></svg>
       </div>
-      <h2 class="text-3xl sm:text-4xl font-bold text-white font-heading mb-4">Looking for Consumer Resources?</h2>
+      <h2 id="consumer-cta-heading" class="text-3xl sm:text-4xl font-bold text-white font-heading mb-4">Looking for Consumer Resources?</h2>
       <p class="text-cranberry-200 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
         For recipes, festival information, cranberry products, and more consumer-focused content, visit the Wisconsin State Cranberry Growers Association at <strong>wiscran.org</strong>.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="https://www.wiscran.org" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-4 bg-white text-cranberry-900 rounded-lg font-semibold hover:bg-cranberry-50 transition-colors shadow-lg">
+        <a href="https://www.wiscran.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-4 bg-white text-cranberry-900 rounded-lg font-semibold hover:bg-cranberry-50 transition-colors shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
           Visit wiscran.org
-          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          <span class="sr-only"> (opens in new tab)</span>
         </a>
-        <a href="https://www.wiscran.org/Festivals" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white rounded-lg font-semibold hover:bg-white/10 transition-colors">
+        <a href="https://www.wiscran.org/Festivals" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white rounded-lg font-semibold hover:bg-white/10 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
           Find Cranberry Festivals
+          <span class="sr-only"> (opens in new tab)</span>
         </a>
       </div>
     </div>

@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+  linkText: string;
+  external?: boolean;
+}
+
+const { title, description, href, linkText, external = true } = Astro.props;
+---
+
+<a 
+  href={href} 
+  target={external ? '_blank' : undefined}
+  rel={external ? 'noopener noreferrer' : undefined}
+  class="bg-white rounded-2xl p-6 border border-warm-200 hover:border-cranberry-300 hover:shadow-lg transition-all duration-300 group block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cranberry-700"
+>
+  <h3 class="text-lg font-bold text-cranberry-900 font-heading mb-2 group-hover:text-cranberry-700 transition-colors">{title}</h3>
+  <p class="text-earth-600 text-sm leading-relaxed mb-3">{description}</p>
+  <span class="text-cranberry-700 text-sm font-medium inline-flex items-center gap-1">
+    {linkText}
+    {external ? (
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+    ) : (
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+    )}
+    {external && <span class="sr-only"> (opens in new tab)</span>}
+  </span>
+</a>

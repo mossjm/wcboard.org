@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
   title: string;
@@ -16,6 +18,8 @@ const currentPath = Astro.url.pathname;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#6d1a1a" />
+    <meta name="color-scheme" content="light" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,169 +27,21 @@ const currentPath = Astro.url.pathname;
     <title>{title} | Wisconsin Cranberry Board</title>
   </head>
   <body class="min-h-screen flex flex-col">
-    <!-- Skip to main content for accessibility -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-cranberry-700 focus:text-white focus:px-4 focus:py-2 focus:top-0 focus:left-0">
+    <!-- Skip Navigation Link -->
+    <a 
+      href="#main-content" 
+      class="skip-link"
+    >
       Skip to main content
     </a>
 
-    <!-- Top bar -->
-    <div class="bg-cranberry-900 text-white text-sm">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex justify-between items-center">
-        <span class="hidden sm:inline">Supporting Wisconsin's #1 Fruit Crop Since 1983</span>
-        <div class="flex items-center gap-4 ml-auto">
-          <a href="tel:7154232070" class="hover:text-cranberry-200 transition-colors flex items-center gap-1">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-            (715) 423-2070
-          </a>
-          <a href="/contact" class="hover:text-cranberry-200 transition-colors">Contact Us</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Main Navigation -->
-    <header class="bg-white shadow-sm sticky top-0 z-40 border-b border-warm-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-20">
-          <!-- Logo -->
-          <a href="/" class="flex items-center gap-3 group">
-            <div class="w-12 h-12 bg-cranberry-700 rounded-full flex items-center justify-center group-hover:bg-cranberry-800 transition-colors">
-              <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
-                <circle cx="12" cy="10" r="4" />
-                <circle cx="8" cy="14" r="3" />
-                <circle cx="16" cy="14" r="3" />
-                <path d="M12 4c0-1 .5-2.5 2-3.5C13 1.5 12.5 2.5 12 4z" />
-              </svg>
-            </div>
-            <div>
-              <div class="text-xl font-bold text-cranberry-900 leading-tight font-heading">Wisconsin Cranberry Board</div>
-              <div class="text-xs text-earth-600 tracking-wider uppercase">Est. 1983</div>
-            </div>
-          </a>
-
-          <!-- Desktop Navigation -->
-          <nav class="hidden lg:flex items-center gap-1" aria-label="Main navigation">
-            <a href="/" class:list={["px-4 py-2 rounded-lg text-sm font-medium transition-colors", currentPath === '/' ? 'bg-cranberry-50 text-cranberry-800' : 'text-earth-700 hover:text-cranberry-700 hover:bg-cranberry-50']}>Home</a>
-            <a href="/about" class:list={["px-4 py-2 rounded-lg text-sm font-medium transition-colors", currentPath.startsWith('/about') ? 'bg-cranberry-50 text-cranberry-800' : 'text-earth-700 hover:text-cranberry-700 hover:bg-cranberry-50']}>About</a>
-            <a href="/grower-resources" class:list={["px-4 py-2 rounded-lg text-sm font-medium transition-colors", currentPath.startsWith('/grower') ? 'bg-cranberry-50 text-cranberry-800' : 'text-earth-700 hover:text-cranberry-700 hover:bg-cranberry-50']}>Grower Resources</a>
-            <a href="/programs-research" class:list={["px-4 py-2 rounded-lg text-sm font-medium transition-colors", currentPath.startsWith('/programs') ? 'bg-cranberry-50 text-cranberry-800' : 'text-earth-700 hover:text-cranberry-700 hover:bg-cranberry-50']}>Programs & Research</a>
-            <a href="/consumers" class:list={["px-4 py-2 rounded-lg text-sm font-medium transition-colors", currentPath.startsWith('/consumers') ? 'bg-cranberry-50 text-cranberry-800' : 'text-earth-700 hover:text-cranberry-700 hover:bg-cranberry-50']}>Consumers</a>
-            <a href="/contact" class="ml-2 px-5 py-2.5 bg-cranberry-700 text-white rounded-lg text-sm font-medium hover:bg-cranberry-800 transition-colors shadow-sm">Contact</a>
-          </nav>
-
-          <!-- Mobile menu button -->
-          <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-earth-700 hover:bg-warm-100 transition-colors" aria-label="Open menu" aria-expanded="false">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path id="menu-open-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-              <path id="menu-close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </button>
-        </div>
-
-        <!-- Mobile Navigation -->
-        <nav id="mobile-menu" class="hidden lg:hidden pb-4" aria-label="Mobile navigation">
-          <div class="flex flex-col gap-1">
-            <a href="/" class:list={["px-4 py-3 rounded-lg text-sm font-medium transition-colors", currentPath === '/' ? 'bg-cranberry-50 text-cranberry-800' : 'text-earth-700 hover:bg-warm-100']}>Home</a>
-            <a href="/about" class:list={["px-4 py-3 rounded-lg text-sm font-medium transition-colors", currentPath.startsWith('/about') ? 'bg-cranberry-50 text-cranberry-800' : 'text-earth-700 hover:bg-warm-100']}>About</a>
-            <a href="/grower-resources" class:list={["px-4 py-3 rounded-lg text-sm font-medium transition-colors", currentPath.startsWith('/grower') ? 'bg-cranberry-50 text-cranberry-800' : 'text-earth-700 hover:bg-warm-100']}>Grower Resources</a>
-            <a href="/programs-research" class:list={["px-4 py-3 rounded-lg text-sm font-medium transition-colors", currentPath.startsWith('/programs') ? 'bg-cranberry-50 text-cranberry-800' : 'text-earth-700 hover:bg-warm-100']}>Programs & Research</a>
-            <a href="/consumers" class:list={["px-4 py-3 rounded-lg text-sm font-medium transition-colors", currentPath.startsWith('/consumers') ? 'bg-cranberry-50 text-cranberry-800' : 'text-earth-700 hover:bg-warm-100']}>Consumers</a>
-            <a href="/contact" class="px-4 py-3 bg-cranberry-700 text-white rounded-lg text-sm font-medium text-center hover:bg-cranberry-800 transition-colors mt-2">Contact Us</a>
-          </div>
-        </nav>
-      </div>
-    </header>
+    <Header currentPath={currentPath} />
 
     <!-- Main Content -->
-    <main id="main-content" class="flex-1">
+    <main id="main-content" class="flex-1" tabindex="-1">
       <slot />
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-cranberry-950 text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          <!-- About Column -->
-          <div class="lg:col-span-1">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-10 h-10 bg-cranberry-700 rounded-full flex items-center justify-center">
-                <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
-                  <circle cx="12" cy="10" r="4" />
-                  <circle cx="8" cy="14" r="3" />
-                  <circle cx="16" cy="14" r="3" />
-                  <path d="M12 4c0-1 .5-2.5 2-3.5C13 1.5 12.5 2.5 12 4z" />
-                </svg>
-              </div>
-              <div class="text-lg font-bold font-heading">Wisconsin Cranberry Board</div>
-            </div>
-            <p class="text-cranberry-200 text-sm leading-relaxed">
-              Supporting and advancing Wisconsin's cranberry industry through strategic investments in research, promotion, and education.
-            </p>
-          </div>
-
-          <!-- Quick Links -->
-          <div>
-            <h3 class="text-sm font-semibold uppercase tracking-wider text-cranberry-300 mb-4">Quick Links</h3>
-            <ul class="space-y-3">
-              <li><a href="/about" class="text-cranberry-100 hover:text-white transition-colors text-sm">About the Board</a></li>
-              <li><a href="/grower-resources" class="text-cranberry-100 hover:text-white transition-colors text-sm">Grower Resources</a></li>
-              <li><a href="/programs-research" class="text-cranberry-100 hover:text-white transition-colors text-sm">Programs & Research</a></li>
-              <li><a href="/consumers" class="text-cranberry-100 hover:text-white transition-colors text-sm">Consumers</a></li>
-              <li><a href="/contact" class="text-cranberry-100 hover:text-white transition-colors text-sm">Contact</a></li>
-            </ul>
-          </div>
-
-          <!-- Related Organizations -->
-          <div>
-            <h3 class="text-sm font-semibold uppercase tracking-wider text-cranberry-300 mb-4">Related Organizations</h3>
-            <ul class="space-y-3">
-              <li><a href="https://www.wiscran.org" target="_blank" rel="noopener" class="text-cranberry-100 hover:text-white transition-colors text-sm">WI Cranberry Growers Assoc.</a></li>
-              <li><a href="https://www.wisconsincranberryresearchstation.org" target="_blank" rel="noopener" class="text-cranberry-100 hover:text-white transition-colors text-sm">WI Cranberry Research Station</a></li>
-              <li><a href="https://fruit.wisc.edu/cranberries/" target="_blank" rel="noopener" class="text-cranberry-100 hover:text-white transition-colors text-sm">UW-Madison Cranberry Research</a></li>
-              <li><a href="https://datcp.wi.gov" target="_blank" rel="noopener" class="text-cranberry-100 hover:text-white transition-colors text-sm">WI Dept. of Agriculture (DATCP)</a></li>
-            </ul>
-          </div>
-
-          <!-- Contact -->
-          <div>
-            <h3 class="text-sm font-semibold uppercase tracking-wider text-cranberry-300 mb-4">Contact Us</h3>
-            <ul class="space-y-3 text-sm text-cranberry-100">
-              <li class="flex items-start gap-2">
-                <svg class="w-4 h-4 mt-0.5 text-cranberry-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                <span>P.O. Box 1351<br />Wisconsin Rapids, WI 54494</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-cranberry-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                <a href="tel:7154232070" class="hover:text-white transition-colors">(715) 423-2070</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="border-t border-cranberry-800 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p class="text-cranberry-300 text-xs">
-            &copy; {new Date().getFullYear()} Wisconsin Cranberry Board. All rights reserved.
-          </p>
-          <p class="text-cranberry-400 text-xs">
-            Administered under <a href="https://datcp.wi.gov" class="underline hover:text-cranberry-200">DATCP</a> Market Orders Program
-          </p>
-        </div>
-      </div>
-    </footer>
-
-    <!-- Mobile menu script -->
-    <script>
-      const menuBtn = document.getElementById('mobile-menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const openIcon = document.getElementById('menu-open-icon');
-      const closeIcon = document.getElementById('menu-close-icon');
-
-      menuBtn?.addEventListener('click', () => {
-        const isOpen = !mobileMenu?.classList.contains('hidden');
-        mobileMenu?.classList.toggle('hidden');
-        openIcon?.classList.toggle('hidden');
-        closeIcon?.classList.toggle('hidden');
-        menuBtn?.setAttribute('aria-expanded', String(!isOpen));
-      });
-    </script>
+    <Footer />
   </body>
 </html>

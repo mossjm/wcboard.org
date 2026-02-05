@@ -1,35 +1,37 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
 ---
 
 <Layout title="Home" description="The Wisconsin Cranberry Board invests in research, promotion, and education to support Wisconsin's cranberry industry — America's #1 cranberry-producing state.">
   
   <!-- Hero Section -->
-  <section class="relative bg-cranberry-950 overflow-hidden">
+  <section class="relative bg-cranberry-950 overflow-hidden" aria-labelledby="hero-heading">
     <div class="absolute inset-0">
       <img 
         src="/images/stock/cranberry-harvest-3.jpg" 
         alt="Aerial view of Wisconsin cranberry harvest with vibrant red cranberries floating in flooded bogs"
         class="w-full h-full object-cover opacity-40"
         loading="eager"
+        decoding="async"
       />
       <div class="absolute inset-0 bg-gradient-to-r from-cranberry-950/90 via-cranberry-950/70 to-cranberry-950/50"></div>
     </div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-40">
       <div class="max-w-3xl">
         <p class="text-cranberry-300 text-sm font-semibold uppercase tracking-widest mb-4">Wisconsin's #1 Fruit Crop</p>
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight font-heading mb-6">
+        <h1 id="hero-heading" class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight font-heading mb-6">
           Leading the Nation in Cranberry Production
         </h1>
         <p class="text-lg sm:text-xl text-cranberry-100 leading-relaxed mb-10 max-w-2xl">
           Wisconsin is the leading cranberry-producing state in the nation, with a proud history of family farms, groundbreaking research, and environmental stewardship spanning over 170 years.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href="/about" class="inline-flex items-center justify-center px-8 py-4 bg-white text-cranberry-900 rounded-lg font-semibold hover:bg-cranberry-50 transition-colors shadow-lg text-base">
+          <a href="/about" class="inline-flex items-center justify-center px-8 py-4 bg-white text-cranberry-900 rounded-lg font-semibold hover:bg-cranberry-50 transition-colors shadow-lg text-base focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
             About the Board
-            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
           </a>
-          <a href="/grower-resources" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white rounded-lg font-semibold hover:bg-white/10 transition-colors text-base">
+          <a href="/grower-resources" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white rounded-lg font-semibold hover:bg-white/10 transition-colors text-base focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
             Grower Resources
           </a>
         </div>
@@ -38,7 +40,7 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- Key Stats Bar -->
-  <section class="bg-cranberry-800 border-t border-cranberry-700">
+  <section class="bg-cranberry-800 border-t border-cranberry-700" aria-label="Key statistics">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
         <div>
@@ -62,12 +64,12 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- Mission Overview -->
-  <section class="py-20 lg:py-28 bg-warm-50">
+  <section class="py-20 lg:py-28 bg-warm-50" aria-labelledby="mission-heading">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         <div>
           <p class="text-cranberry-700 text-sm font-semibold uppercase tracking-widest mb-3">Our Mission</p>
-          <h2 class="text-3xl sm:text-4xl font-bold text-cranberry-950 font-heading mb-6 leading-tight">
+          <h2 id="mission-heading" class="text-3xl sm:text-4xl font-bold text-cranberry-950 font-heading mb-6 leading-tight">
             Investing in Wisconsin's Cranberry Future
           </h2>
           <p class="text-earth-700 text-lg leading-relaxed mb-6">
@@ -76,9 +78,9 @@ import Layout from '../layouts/Layout.astro';
           <p class="text-earth-600 leading-relaxed mb-8">
             Established in 1983, the Board operates under state statute and is administered by the Wisconsin Department of Agriculture, Trade and Consumer Protection (DATCP). Through strategic reinvestment of grower assessment funds, we advance research, education, and promotion initiatives that keep Wisconsin at the forefront of cranberry production.
           </p>
-          <a href="/about" class="inline-flex items-center text-cranberry-700 font-semibold hover:text-cranberry-800 transition-colors group">
+          <a href="/about" class="inline-flex items-center text-cranberry-700 font-semibold hover:text-cranberry-800 transition-colors group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cranberry-700 rounded-sm">
             Learn more about the Board
-            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
           </a>
         </div>
         <div class="relative">
@@ -87,8 +89,9 @@ import Layout from '../layouts/Layout.astro';
             alt="Freshly harvested Wisconsin cranberries in collection bins at a cranberry marsh"
             class="rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
             loading="lazy"
+            decoding="async"
           />
-          <div class="absolute -bottom-6 -left-6 bg-cranberry-700 text-white rounded-xl px-6 py-4 shadow-lg hidden sm:block">
+          <div class="absolute -bottom-6 -left-6 bg-cranberry-700 text-white rounded-xl px-6 py-4 shadow-lg hidden sm:block" aria-hidden="true">
             <div class="text-2xl font-bold font-heading">Since 1983</div>
             <div class="text-cranberry-200 text-sm">Supporting WI Growers</div>
           </div>
@@ -98,17 +101,15 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- Four Pillars -->
-  <section class="py-20 lg:py-28 bg-white">
+  <section class="py-20 lg:py-28 bg-white" aria-labelledby="pillars-heading">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <p class="text-cranberry-700 text-sm font-semibold uppercase tracking-widest mb-3">What We Do</p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-cranberry-950 font-heading">Our Strategic Pillars</h2>
-      </div>
+      <SectionHeading badge="What We Do" title="Our Strategic Pillars" />
+      <div id="pillars-heading" class="sr-only">Our Strategic Pillars</div>
       
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <!-- Research & Innovation -->
-        <div class="bg-warm-50 rounded-2xl p-8 border border-warm-200 hover:border-cranberry-300 hover:shadow-lg transition-all group">
-          <div class="w-14 h-14 bg-cranberry-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-cranberry-200 transition-colors">
+        <article class="bg-warm-50 rounded-2xl p-8 border border-warm-200 hover:border-cranberry-300 hover:shadow-lg transition-all duration-300 group">
+          <div class="w-14 h-14 bg-cranberry-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-cranberry-200 transition-colors" aria-hidden="true">
             <svg class="w-7 h-7 text-cranberry-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611l-.292.058a2.25 2.25 0 01-1.067-.06l-1.196-.3a9 9 0 00-4.56 0l-1.196.3a2.25 2.25 0 01-1.067.06l-.292-.058c-1.717-.293-2.299-2.379-1.067-3.611L5 14.5"></path>
             </svg>
@@ -117,11 +118,11 @@ import Layout from '../layouts/Layout.astro';
           <p class="text-earth-600 text-sm leading-relaxed">
             Funds cutting-edge research to improve production practices, sustainability, pest management, and crop quality for Wisconsin growers.
           </p>
-        </div>
+        </article>
 
         <!-- Promotion & Education -->
-        <div class="bg-warm-50 rounded-2xl p-8 border border-warm-200 hover:border-cranberry-300 hover:shadow-lg transition-all group">
-          <div class="w-14 h-14 bg-forest-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-forest-200 transition-colors">
+        <article class="bg-warm-50 rounded-2xl p-8 border border-warm-200 hover:border-cranberry-300 hover:shadow-lg transition-all duration-300 group">
+          <div class="w-14 h-14 bg-forest-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-forest-200 transition-colors" aria-hidden="true">
             <svg class="w-7 h-7 text-forest-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"></path>
             </svg>
@@ -130,11 +131,11 @@ import Layout from '../layouts/Layout.astro';
           <p class="text-earth-600 text-sm leading-relaxed">
             Supports efforts that build demand and increase consumer understanding of Wisconsin cranberries and their many health benefits.
           </p>
-        </div>
+        </article>
 
         <!-- Industry Advancement -->
-        <div class="bg-warm-50 rounded-2xl p-8 border border-warm-200 hover:border-cranberry-300 hover:shadow-lg transition-all group">
-          <div class="w-14 h-14 bg-earth-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-earth-200 transition-colors">
+        <article class="bg-warm-50 rounded-2xl p-8 border border-warm-200 hover:border-cranberry-300 hover:shadow-lg transition-all duration-300 group">
+          <div class="w-14 h-14 bg-earth-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-earth-200 transition-colors" aria-hidden="true">
             <svg class="w-7 h-7 text-earth-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"></path>
             </svg>
@@ -143,11 +144,11 @@ import Layout from '../layouts/Layout.astro';
           <p class="text-earth-600 text-sm leading-relaxed">
             Invests in projects that strengthen the future of Wisconsin's cranberry industry through innovation and long-term strategic planning.
           </p>
-        </div>
+        </article>
 
         <!-- Stewardship -->
-        <div class="bg-warm-50 rounded-2xl p-8 border border-warm-200 hover:border-cranberry-300 hover:shadow-lg transition-all group">
-          <div class="w-14 h-14 bg-forest-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-forest-200 transition-colors">
+        <article class="bg-warm-50 rounded-2xl p-8 border border-warm-200 hover:border-cranberry-300 hover:shadow-lg transition-all duration-300 group">
+          <div class="w-14 h-14 bg-forest-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-forest-200 transition-colors" aria-hidden="true">
             <svg class="w-7 h-7 text-forest-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 003 12c0-1.605.42-3.113 1.157-4.418"></path>
             </svg>
@@ -156,55 +157,56 @@ import Layout from '../layouts/Layout.astro';
           <p class="text-earth-600 text-sm leading-relaxed">
             Encourages responsible growing practices and environmental care across Wisconsin's 20,000+ acres of cranberry production.
           </p>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- Wisconsin Cranberry Stats Section -->
-  <section class="py-20 lg:py-28 bg-cranberry-900 relative overflow-hidden">
+  <section class="py-20 lg:py-28 bg-cranberry-900 relative overflow-hidden" aria-labelledby="stats-heading">
     <div class="absolute inset-0 opacity-10">
       <img 
         src="/images/stock/cranberry-closeup-3.jpg" 
         alt="" 
         class="w-full h-full object-cover"
         loading="lazy"
+        decoding="async"
         aria-hidden="true"
       />
     </div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <p class="text-cranberry-300 text-sm font-semibold uppercase tracking-widest mb-3">By the Numbers</p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-white font-heading">Wisconsin Cranberry Industry</h2>
+        <h2 id="stats-heading" class="text-3xl sm:text-4xl font-bold text-white font-heading">Wisconsin Cranberry Industry</h2>
       </div>
       
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" role="list" aria-label="Industry statistics">
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10" role="listitem">
           <div class="text-5xl font-bold text-white font-heading mb-2">20,000+</div>
           <div class="text-cranberry-200 font-medium">Acres in Production</div>
           <div class="text-cranberry-400 text-sm mt-2">Across 20 Wisconsin counties</div>
         </div>
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10">
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10" role="listitem">
           <div class="text-5xl font-bold text-white font-heading mb-2">5.5M</div>
           <div class="text-cranberry-200 font-medium">Barrels Produced (2024)</div>
           <div class="text-cranberry-400 text-sm mt-2">~61% of the U.S. crop</div>
         </div>
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10">
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10" role="listitem">
           <div class="text-5xl font-bold text-white font-heading mb-2">4,000</div>
           <div class="text-cranberry-200 font-medium">Jobs Supported</div>
           <div class="text-cranberry-400 text-sm mt-2">Across Wisconsin communities</div>
         </div>
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10">
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10" role="listitem">
           <div class="text-5xl font-bold text-white font-heading mb-2">31+</div>
           <div class="text-cranberry-200 font-medium">Consecutive Years at #1</div>
           <div class="text-cranberry-400 text-sm mt-2">Leading U.S. producer since 1994</div>
         </div>
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10">
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10" role="listitem">
           <div class="text-5xl font-bold text-white font-heading mb-2">170+</div>
           <div class="text-cranberry-200 font-medium">Years of Heritage</div>
           <div class="text-cranberry-400 text-sm mt-2">Commercial production since 1850s</div>
         </div>
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10">
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10" role="listitem">
           <div class="text-5xl font-bold text-white font-heading mb-2">$577K</div>
           <div class="text-cranberry-200 font-medium">2025 Grant Funding</div>
           <div class="text-cranberry-400 text-sm mt-2">Invested in research & education</div>
@@ -214,22 +216,23 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- Quick Links / CTA Section -->
-  <section class="py-20 lg:py-28 bg-warm-50">
+  <section class="py-20 lg:py-28 bg-warm-50" aria-labelledby="help-heading">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <p class="text-cranberry-700 text-sm font-semibold uppercase tracking-widest mb-3">Get Involved</p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-cranberry-950 font-heading">How Can We Help?</h2>
+        <h2 id="help-heading" class="text-3xl sm:text-4xl font-bold text-cranberry-950 font-heading">How Can We Help?</h2>
       </div>
       
       <div class="grid md:grid-cols-3 gap-8">
         <!-- For Growers -->
-        <a href="/grower-resources" class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-warm-200 hover:shadow-xl hover:border-cranberry-300 transition-all">
+        <a href="/grower-resources" class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-warm-200 hover:shadow-xl hover:border-cranberry-300 transition-all duration-300 block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cranberry-700">
           <div class="relative h-48 overflow-hidden">
             <img 
               src="/images/stock/cranberry-bog-1.jpg" 
               alt="Cranberry harvest operations in Wisconsin"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
+              decoding="async"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
           </div>
@@ -238,7 +241,7 @@ import Layout from '../layouts/Layout.astro';
             <p class="text-earth-600 text-sm leading-relaxed mb-4">
               Access resources, research findings, and information about Board programs designed to support Wisconsin cranberry growers.
             </p>
-            <span class="inline-flex items-center text-cranberry-700 font-semibold text-sm group-hover:translate-x-1 transition-transform">
+            <span class="inline-flex items-center text-cranberry-700 font-semibold text-sm group-hover:translate-x-1 transition-transform" aria-hidden="true">
               Grower Resources
               <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </span>
@@ -246,13 +249,14 @@ import Layout from '../layouts/Layout.astro';
         </a>
 
         <!-- Research -->
-        <a href="/programs-research" class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-warm-200 hover:shadow-xl hover:border-cranberry-300 transition-all">
+        <a href="/programs-research" class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-warm-200 hover:shadow-xl hover:border-cranberry-300 transition-all duration-300 block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cranberry-700">
           <div class="relative h-48 overflow-hidden">
             <img 
               src="/images/stock/cranberry-vines-summer.jpg" 
-              alt="Cranberry vines growing in Wisconsin"
+              alt="Cranberry vines growing in a Wisconsin bog during summer"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
+              decoding="async"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
           </div>
@@ -261,7 +265,7 @@ import Layout from '../layouts/Layout.astro';
             <p class="text-earth-600 text-sm leading-relaxed mb-4">
               Explore the research projects and educational programs funded by the Board to advance Wisconsin's cranberry industry.
             </p>
-            <span class="inline-flex items-center text-cranberry-700 font-semibold text-sm group-hover:translate-x-1 transition-transform">
+            <span class="inline-flex items-center text-cranberry-700 font-semibold text-sm group-hover:translate-x-1 transition-transform" aria-hidden="true">
               View Programs
               <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </span>
@@ -269,13 +273,14 @@ import Layout from '../layouts/Layout.astro';
         </a>
 
         <!-- Experience Cranberries -->
-        <a href="/consumers" class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-warm-200 hover:shadow-xl hover:border-cranberry-300 transition-all">
+        <a href="/consumers" class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-warm-200 hover:shadow-xl hover:border-cranberry-300 transition-all duration-300 block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cranberry-700">
           <div class="relative h-48 overflow-hidden">
             <img 
               src="/images/stock/cranberry-closeup-4.jpg" 
-              alt="Close-up of fresh Wisconsin cranberries"
+              alt="Close-up of fresh ripe Wisconsin cranberries"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
+              decoding="async"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
           </div>
@@ -284,7 +289,7 @@ import Layout from '../layouts/Layout.astro';
             <p class="text-earth-600 text-sm leading-relaxed mb-4">
               Discover Wisconsin's state fruit — from bog to table. Learn about cranberry nutrition, recipes, and festivals.
             </p>
-            <span class="inline-flex items-center text-cranberry-700 font-semibold text-sm group-hover:translate-x-1 transition-transform">
+            <span class="inline-flex items-center text-cranberry-700 font-semibold text-sm group-hover:translate-x-1 transition-transform" aria-hidden="true">
               Learn More
               <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </span>
@@ -295,57 +300,58 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- Board Investment Section -->
-  <section class="py-20 lg:py-28 bg-white border-t border-warm-200">
+  <section class="py-20 lg:py-28 bg-white border-t border-warm-200" aria-labelledby="investment-heading">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         <div class="order-2 lg:order-1">
           <img 
             src="/images/stock/cranberry-harvest-4.jpg"
-            alt="Wisconsin cranberry marsh during harvest season"
+            alt="Wisconsin cranberry marsh during fall harvest season with equipment working the bog"
             class="rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
             loading="lazy"
+            decoding="async"
           />
         </div>
         <div class="order-1 lg:order-2">
           <p class="text-cranberry-700 text-sm font-semibold uppercase tracking-widest mb-3">2025 Investments</p>
-          <h2 class="text-3xl sm:text-4xl font-bold text-cranberry-950 font-heading mb-6 leading-tight">
+          <h2 id="investment-heading" class="text-3xl sm:text-4xl font-bold text-cranberry-950 font-heading mb-6 leading-tight">
             $577,138 Reinvested in Wisconsin's Cranberry Industry
           </h2>
           <p class="text-earth-700 text-lg leading-relaxed mb-6">
             The Wisconsin Cranberry Board has committed significant funding to advance the industry through research, education, and grower support programs.
           </p>
-          <div class="space-y-4 mb-8">
-            <div class="flex items-start gap-3">
-              <div class="w-6 h-6 bg-cranberry-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+          <ul class="space-y-4 mb-8" role="list">
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 bg-cranberry-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" aria-hidden="true">
                 <svg class="w-3.5 h-3.5 text-cranberry-700" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
               </div>
               <div>
                 <strong class="text-cranberry-900">9 Research Projects</strong>
                 <span class="text-earth-600"> — advancing sustainable practices, pest management, and crop quality</span>
               </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <div class="w-6 h-6 bg-cranberry-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 bg-cranberry-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" aria-hidden="true">
                 <svg class="w-3.5 h-3.5 text-cranberry-700" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
               </div>
               <div>
                 <strong class="text-cranberry-900">5 Education Programs</strong>
                 <span class="text-earth-600"> — building public awareness and grower knowledge</span>
               </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <div class="w-6 h-6 bg-cranberry-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 bg-cranberry-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" aria-hidden="true">
                 <svg class="w-3.5 h-3.5 text-cranberry-700" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
               </div>
               <div>
                 <strong class="text-cranberry-900">Assessment Rate Increased</strong>
                 <span class="text-earth-600"> — to 25¢/barrel to expand capacity for current and future priorities</span>
               </div>
-            </div>
-          </div>
-          <a href="/programs-research" class="inline-flex items-center text-cranberry-700 font-semibold hover:text-cranberry-800 transition-colors group">
+            </li>
+          </ul>
+          <a href="/programs-research" class="inline-flex items-center text-cranberry-700 font-semibold hover:text-cranberry-800 transition-colors group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cranberry-700 rounded-sm">
             See all programs & research
-            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
           </a>
         </div>
       </div>
