@@ -138,9 +138,11 @@ const boardMembers = [
         </p>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div class="flex flex-wrap justify-center gap-6">
         {boardMembers.map((member) => (
-          <BoardMemberCard {...member} />
+          <div class="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)]">
+            <BoardMemberCard {...member} />
+          </div>
         ))}
       </div>
 
