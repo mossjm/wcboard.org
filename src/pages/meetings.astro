@@ -1,0 +1,200 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { getCollection } from 'astro:content';
+
+// Get all meetings and sort by date
+const allMeetings = await getCollection('meetings');
+const sortedMeetings = allMeetings.sort((a, b) => 
+  new Date(a.data.date).getTime() - new Date(b.data.date).getTime()
+);
+
+// Split into upcoming and past
+const now = new Date();
+now.setHours(0, 0, 0, 0);
+const upcomingMeetings = sortedMeetings.filter(m => new Date(m.data.date) >= now && !m.data.cancelled);
+const pastMeetings = sortedMeetings.filter(m => new Date(m.data.date) < now && !m.data.cancelled).reverse();
+
+// Type badge config
+const typeBadges: Record<string, { label: string; class: string }> = {
+  'board-meeting': { label: 'Board Meeting', class: 'bg-cranberry-100 text-cranberry-800' },
+  'public-hearing': { label: 'Public Notice', class: 'bg-amber-100 text-amber-800' },
+  'industry-event': { label: 'Industry Event', class: 'bg-forest-100 text-forest-800' },
+  'workshop': { label: 'Workshop', class: 'bg-blue-100 text-blue-800' },
+};
+
+function formatDate(dateStr: string): string {
+  const date = new Date(dateStr + 'T12:00:00');
+  return date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+}
+
+function formatShortDate(dateStr: string): { month: string; day: string } {
+  const date = new Date(dateStr + 'T12:00:00');
+  return {
+    month: date.toLocaleDateString('en-US', { month: 'short' }).toUpperCase(),
+    day: date.toLocaleDateString('en-US', { day: 'numeric' }),
+  };
+}
+---
+
+<Layout title="Meetings & Events" description="Upcoming Wisconsin Cranberry Board meetings, public hearings, and industry events. Board meetings are open to the public.">
+  
+  <Hero
+    title="Meetings & Events"
+    subtitle="Stay Informed"
+    description="The Wisconsin Cranberry Board meets regularly throughout the year. All board meetings are open to the public. Find upcoming dates, locations, and agendas below."
+    image="/images/stock/cranberry-bog-2.jpg"
+    imageAlt="Wisconsin cranberry bog during harvest season"
+  />
+
+  <Breadcrumb items={[{ label: 'Meetings & Events' }]} />
+
+  <!-- Upcoming Meetings -->
+  <section class="py-20 lg:py-28 bg-warm-50" aria-labelledby="upcoming-heading">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <h2 id="upcoming-heading" class="text-3xl font-bold text-cranberry-950 font-heading mb-3">Upcoming Meetings & Events</h2>
+        <p class="text-earth-600">
+          All Wisconsin Cranberry Board meetings are open to the public. For questions or to request meeting materials, 
+          <a href="/contact" class="text-cranberry-700 underline hover:text-cranberry-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cranberry-700 rounded-sm">contact the Board office</a>.
+        </p>
+      </div>
+
+      {upcomingMeetings.length > 0 ? (
+        <div class="space-y-6" role="list" aria-label="Upcoming meetings and events">
+          {upcomingMeetings.map((meeting) => {
+            const badge = typeBadges[meeting.data.type];
+            const shortDate = formatShortDate(meeting.data.date);
+            return (
+              <article 
+                class="bg-white rounded-2xl border border-warm-200 shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden"
+                role="listitem"
+              >
+                <div class="flex flex-col sm:flex-row">
+                  {/* Date badge */}
+                  <div class="sm:w-28 flex-shrink-0 bg-cranberry-700 text-white flex flex-row sm:flex-col items-center justify-center gap-2 sm:gap-0 py-4 sm:py-6 px-4">
+                    <div class="text-sm font-semibold uppercase tracking-wider opacity-90">{shortDate.month}</div>
+                    <div class="text-3xl sm:text-4xl font-bold font-heading leading-none">{shortDate.day}</div>
+                  </div>
+                  
+                  {/* Content */}
+                  <div class="flex-1 p-6 sm:p-8">
+                    <div class="flex flex-wrap items-start gap-3 mb-3">
+                      <span class={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${badge.class}`}>
+                        {badge.label}
+                      </span>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-cranberry-900 font-heading mb-2">{meeting.data.title}</h3>
+                    
+                    <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-earth-600 mb-3">
+                      <div class="flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-earth-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <time datetime={meeting.data.date}>{formatDate(meeting.data.date)}</time>
+                      </div>
+                      {meeting.data.time && (
+                        <div class="flex items-center gap-1.5">
+                          <svg class="w-4 h-4 text-earth-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                          <span>{meeting.data.time}{meeting.data.endTime ? ` – ${meeting.data.endTime}` : ''}</span>
+                        </div>
+                      )}
+                      {meeting.data.location && (
+                        <div class="flex items-center gap-1.5">
+                          <svg class="w-4 h-4 text-earth-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                          <span>{meeting.data.location}</span>
+                        </div>
+                      )}
+                    </div>
+                    
+                    {meeting.data.description && (
+                      <p class="text-earth-600 text-sm leading-relaxed">{meeting.data.description}</p>
+                    )}
+                    
+                    {meeting.data.address && (
+                      <p class="text-earth-600 text-xs mt-2">{meeting.data.address}</p>
+                    )}
+
+                    {(meeting.data.agenda || meeting.data.minutes) && (
+                      <div class="flex gap-4 mt-4 pt-4 border-t border-warm-200">
+                        {meeting.data.agenda && (
+                          <a href={meeting.data.agenda} target="_blank" rel="noopener noreferrer" class="text-cranberry-700 text-sm font-medium hover:text-cranberry-800 underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cranberry-700 rounded-sm">
+                            View Agenda<span class="sr-only"> (opens in new tab, PDF)</span>
+                          </a>
+                        )}
+                        {meeting.data.minutes && (
+                          <a href={meeting.data.minutes} target="_blank" rel="noopener noreferrer" class="text-cranberry-700 text-sm font-medium hover:text-cranberry-800 underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cranberry-700 rounded-sm">
+                            View Minutes<span class="sr-only"> (opens in new tab, PDF)</span>
+                          </a>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      ) : (
+        <div class="bg-white rounded-2xl border border-warm-200 p-12 text-center">
+          <div class="w-16 h-16 bg-cranberry-100 rounded-2xl flex items-center justify-center mx-auto mb-4" aria-hidden="true">
+            <svg class="w-8 h-8 text-cranberry-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+          </div>
+          <p class="text-earth-600 text-lg font-medium">No upcoming meetings scheduled at this time.</p>
+          <p class="text-earth-600 text-sm mt-2">Check back soon or <a href="/contact" class="text-cranberry-700 underline hover:text-cranberry-800">contact the Board office</a> for information.</p>
+        </div>
+      )}
+
+      {/* Notice */}
+      <div class="mt-8 bg-cranberry-50 rounded-2xl p-6 border border-cranberry-100">
+        <div class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-cranberry-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <div>
+            <p class="text-cranberry-900 text-sm font-medium">Meeting Information</p>
+            <p class="text-earth-600 text-sm mt-1">
+              All Wisconsin Cranberry Board meetings are open to the public per Wisconsin open meetings law. Meeting dates and locations are subject to change. For the latest information, contact the Board office at <a href="tel:7154232070" class="text-cranberry-700 underline hover:text-cranberry-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cranberry-700 rounded-sm">(715) 423-2070</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Past Meetings -->
+  {pastMeetings.length > 0 && (
+    <section class="py-20 lg:py-28 bg-white border-t border-warm-200" aria-labelledby="past-heading">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 id="past-heading" class="text-2xl font-bold text-cranberry-950 font-heading mb-8">Past Meetings</h2>
+        
+        <div class="space-y-4" role="list" aria-label="Past meetings and events">
+          {pastMeetings.map((meeting) => {
+            const badge = typeBadges[meeting.data.type];
+            return (
+              <article class="bg-warm-50 rounded-xl border border-warm-200 p-5 flex flex-col sm:flex-row sm:items-center gap-4" role="listitem">
+                <div class="flex items-center gap-3 flex-1 min-w-0">
+                  <time datetime={meeting.data.date} class="text-earth-600 text-sm font-medium whitespace-nowrap">
+                    {formatDate(meeting.data.date)}
+                  </time>
+                  <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${badge.class}`}>
+                    {badge.label}
+                  </span>
+                </div>
+                <h3 class="text-cranberry-900 font-medium text-sm flex-1">{meeting.data.title}</h3>
+                {(meeting.data.minutes || meeting.data.agenda) && (
+                  <div class="flex gap-3">
+                    {meeting.data.minutes && (
+                      <a href={meeting.data.minutes} target="_blank" rel="noopener noreferrer" class="text-cranberry-700 text-xs font-medium hover:text-cranberry-800 underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cranberry-700 rounded-sm">
+                        Minutes<span class="sr-only"> (opens in new tab)</span>
+                      </a>
+                    )}
+                  </div>
+                )}
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )}
+
+</Layout>

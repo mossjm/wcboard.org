@@ -8,6 +8,7 @@ const { currentPath } = Astro.props;
 const navLinks = [
   { href: '/', label: 'Home', match: (p: string) => p === '/' },
   { href: '/about', label: 'About', match: (p: string) => p.startsWith('/about') },
+  { href: '/meetings', label: 'Meetings', match: (p: string) => p.startsWith('/meetings') },
   { href: '/grower-resources', label: 'Grower Resources', match: (p: string) => p.startsWith('/grower') },
   { href: '/programs-research', label: 'Programs & Research', match: (p: string) => p.startsWith('/programs') },
   { href: '/consumers', label: 'Consumers', match: (p: string) => p.startsWith('/consumers') },
@@ -33,7 +34,7 @@ const navLinks = [
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-20">
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-3 group focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cranberry-700 rounded-lg" aria-label="Wisconsin Cranberry Board — Home">
+      <a href="/" class="flex items-center gap-3 group focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cranberry-700 rounded-lg">
         <!-- [PLACEHOLDER: Replace with WCB_Logo_cropped.png from Google Drive when available] -->
         <div class="w-12 h-12 bg-cranberry-700 rounded-full flex items-center justify-center group-hover:bg-cranberry-800 transition-colors" aria-hidden="true">
           <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
