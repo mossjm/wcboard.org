@@ -5,13 +5,13 @@ import Breadcrumb from '../components/Breadcrumb.astro';
 import BoardMemberCard from '../components/BoardMemberCard.astro';
 
 const boardMembers = [
-  { name: 'John Moss', position: 'President', location: 'Wisconsin Rapids', term: '3-year term', bio: 'John Moss is a Wisconsin cranberry grower based in Wisconsin Rapids and currently serves as President of the Wisconsin Cranberry Board.' },
-  { name: 'Amy Gebhardt', position: 'Treasurer', location: 'Warrens', term: '3-year term', bio: 'Amy Gebhardt serves as Treasurer of the Wisconsin Cranberry Board, representing growers in the Warrens area.' },
-  { name: 'Nicole Hansen', position: 'Board Member', location: 'Necedah', term: 'Term began Sept. 2024', bio: 'Nicole Hansen is a cranberry grower from Necedah who was elected to the Board in 2024.' },
-  { name: 'David Bartling', position: 'Board Member', location: 'Manitowish Waters', term: 'Term began Sept. 2024', bio: 'David Bartling represents northern Wisconsin cranberry growers from his operation in Manitowish Waters.' },
-  { name: 'Jon Duckart', position: 'Board Member', location: 'Wisconsin Rapids', term: 'Term began Sept. 2025', bio: 'Jon Duckart is a cranberry grower in the Wisconsin Rapids area, elected to the Board in 2025.' },
-  { name: 'Amber Bristow', position: 'Board Member', location: 'Warrens', term: 'Term began Sept. 2025', bio: 'Amber Bristow is a cranberry grower based in Warrens, elected to the Board in 2025.' },
-  { name: 'Rochelle Hoffman', position: 'Board Member', location: 'Tomah', term: 'Term began Sept. 2025', bio: 'Rochelle Hoffman represents cranberry growers in the Tomah region, elected to the Board in 2025.' },
+  { name: 'John Moss', position: 'President', location: 'Wisconsin Rapids', term: '3-year term', headshot: '/images/headshots/john.jpeg', bio: 'John Moss is a Wisconsin cranberry grower based in Wisconsin Rapids and currently serves as President of the Wisconsin Cranberry Board.' },
+  { name: 'Amy Gebhardt', position: 'Treasurer', location: 'Warrens', term: '3-year term', headshot: '/images/headshots/amy.jpg', bio: 'Amy Gebhardt serves as Treasurer of the Wisconsin Cranberry Board, representing growers in the Warrens area.' },
+  { name: 'Nicole Hansen', position: 'Board Member', location: 'Necedah', term: 'Term began Sept. 2024', headshot: '/images/headshots/nicole.png', bio: 'Nicole Hansen is a cranberry grower from Necedah who was elected to the Board in 2024.' },
+  { name: 'David Bartling', position: 'Board Member', location: 'Manitowish Waters', term: 'Term began Sept. 2024', headshot: '/images/headshots/david.jpeg', bio: 'David Bartling represents northern Wisconsin cranberry growers from his operation in Manitowish Waters.' },
+  { name: 'Jon Duckart', position: 'Board Member', location: 'Wisconsin Rapids', term: 'Term began Sept. 2025', headshot: '/images/headshots/jon.jpg', bio: 'Jon Duckart is a cranberry grower in the Wisconsin Rapids area, elected to the Board in 2025.' },
+  { name: 'Amber Bristow', position: 'Board Member', location: 'Warrens', term: 'Term began Sept. 2025', headshot: '/images/headshots/amber.jpg', bio: 'Amber Bristow is a cranberry grower based in Warrens, elected to the Board in 2025.' },
+  { name: 'Rochelle Hoffman', position: 'Board Member', location: 'Tomah', term: 'Term began Sept. 2025', headshot: '/images/headshots/rochelle.jpeg', bio: 'Rochelle Hoffman represents cranberry growers in the Tomah region, elected to the Board in 2025.' },
 ];
 ---
 
@@ -138,7 +138,6 @@ const boardMembers = [
         </p>
       </div>
 
-      <!-- [PLACEHOLDER: Board member headshot photos from Google Drive (WCB/images/board photos/00-headshots/) will replace initials placeholders] -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {boardMembers.map((member) => (
           <BoardMemberCard {...member} />
@@ -162,14 +161,13 @@ const boardMembers = [
         </p>
 
         <article class="bg-white rounded-2xl p-8 shadow-sm border border-warm-200 max-w-md mx-auto">
-          <!-- [PLACEHOLDER: Staff headshot photo needed] -->
-          <div 
-            class="w-24 h-24 bg-gradient-to-br from-cranberry-600 to-cranberry-800 rounded-full flex items-center justify-center mx-auto mb-4 ring-3 ring-cranberry-100"
-            role="img"
-            aria-label="Photo placeholder for Grant Holley"
-          >
-            <span class="text-white text-2xl font-bold font-heading" aria-hidden="true">GH</span>
-          </div>
+          <img 
+            src="/images/headshots/grant.jpg" 
+            alt="Portrait of Grant Holley, Executive Director"
+            class="w-24 h-24 rounded-full object-cover mx-auto mb-4 ring-3 ring-cranberry-100"
+            loading="lazy"
+            decoding="async"
+          />
           <h3 class="text-xl font-bold text-cranberry-900 font-heading">Grant Holley</h3>
           <p class="text-cranberry-600 font-medium">Executive Director</p>
           <p class="text-earth-600 text-sm mt-4 leading-relaxed">
