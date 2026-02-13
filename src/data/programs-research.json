@@ -1,0 +1,95 @@
+{
+  "hero": {
+    "title": "Programs & Research",
+    "subtitle": "Investing in the Future",
+    "description": "The Wisconsin Cranberry Board funds cutting-edge research and educational programs that empower growers, advance sustainable practices, and strengthen Wisconsin's position as America's cranberry leader.",
+    "image": "/images/stock/cranberry-vines-summer.jpg",
+    "imageAlt": "Wisconsin cranberry vines in summer with green foliage covering the bog"
+  },
+  "funding": {
+    "badge": "2025 Grant Funding",
+    "title": "$577,138 Invested in 2025",
+    "description": "The Wisconsin Cranberry Board committed significant funding across 9 research projects and 5 education and communication programs for 2025, directly empowering growers to make informed decisions, adopt innovative practices, and lead the industry forward.",
+    "researchCount": 9,
+    "researchLabel": "Research Projects",
+    "researchDetail": "Advancing sustainable production, pest management, and crop quality",
+    "educationCount": 5,
+    "educationLabel": "Education & Communication Programs",
+    "educationDetail": "$339,290 invested in grower education and public awareness"
+  },
+  "researchAreas": {
+    "badge": "Research Areas",
+    "title": "Advancing the Science of Cranberries",
+    "description": "WCB-funded research targets key priorities that directly benefit Wisconsin growers and strengthen the industry's long-term sustainability.",
+    "areas": [
+      {
+        "title": "Sustainable Growing Practices",
+        "description": "Research into more targeted use of fertilizers, pesticides, and water management to reduce environmental impact while maintaining crop productivity."
+      },
+      {
+        "title": "Pest & Disease Management",
+        "description": "Studies on integrated pest management, invasive insect control, and disease prevention strategies to protect Wisconsin's cranberry crops."
+      },
+      {
+        "title": "Crop Yield & Quality",
+        "description": "Research focused on improving cranberry yield, fruit quality, and color development to help Wisconsin growers produce the best berries possible."
+      },
+      {
+        "title": "Cold Hardiness & Climate",
+        "description": "Studying the cold hardiness of different cranberry varieties and adapting growing practices to evolving environmental and climate conditions."
+      },
+      {
+        "title": "New Variety Development",
+        "description": "Breeding programs to develop hardy, high-yield cranberry varieties optimized for Wisconsin's growing conditions, including the UW-developed HyRed variety."
+      },
+      {
+        "title": "Plant Physiology & Nutrition",
+        "description": "Research into plant physiology, nutrient efficiency, and soil health to optimize growing conditions and reduce input costs for growers."
+      }
+    ]
+  },
+  "partnerships": {
+    "badge": "Partnerships",
+    "title": "Collaborative Research",
+    "description": "The Wisconsin Cranberry Board partners with leading institutions to leverage research investments and drive innovation in cranberry production.",
+    "partners": [
+      {
+        "name": "UW-Madison",
+        "description": "UW-Madison's College of Agricultural and Life Sciences (CALS) provides fruit crop specialists, plant breeders, and entomologists who conduct WCB-funded research. The university developed the HyRed cranberry variety, which allows Wisconsin growers to harvest berries with better red color before autumn frosts.",
+        "linkUrl": "https://fruit.wisc.edu/cranberries/",
+        "linkText": "UW Cranberry Program"
+      },
+      {
+        "name": "WCREF & Research Station",
+        "description": "The Wisconsin Cranberry Research and Education Foundation (WCREF) owns and operates the Wisconsin Cranberry Research Station near Black River Falls. This public/private partnership with USDA-ARS and UW-Madison hosts over a dozen field research projects annually, providing dedicated facilities where researchers can conduct aggressive studies.",
+        "linkUrl": "https://www.wisconsincranberryresearchstation.org",
+        "linkText": "Research Station"
+      },
+      {
+        "name": "USDA-ARS",
+        "description": "The USDA Agricultural Research Service partners with the Wisconsin cranberry industry on research conducted at the Wisconsin Cranberry Research Station. ARS scientists contribute to studies on cold hardiness, plant breeding, pest management, and production efficiency.",
+        "linkUrl": "https://www.ars.usda.gov",
+        "linkText": "USDA-ARS"
+      }
+    ]
+  },
+  "education": {
+    "badge": "Education & Promotion",
+    "title": "Building Understanding & Demand",
+    "description": "Beyond research, the Wisconsin Cranberry Board invests in education and promotional programs that support grower success and build public awareness of Wisconsin cranberries.",
+    "items": [
+      { "label": "Grower Education", "detail": "Training, workshops, and knowledge transfer to help growers adopt innovative practices" },
+      { "label": "Public Awareness", "detail": "Programs that educate consumers about cranberry nutrition, sustainability, and Wisconsin's cranberry heritage" },
+      { "label": "Industry Communications", "detail": "Keeping growers informed about Board activities, research findings, and industry developments" },
+      { "label": "Sustainability Surveys", "detail": "Working with UW-Madison to benchmark environmental practices across Wisconsin cranberry operations" }
+    ],
+    "image": "/images/stock/cranberry-harvest-2.jpg",
+    "imageAlt": "Wisconsin cranberry harvest showing equipment working on a flooded cranberry bog"
+  },
+  "cta": {
+    "title": "Researchers: Submit a Proposal",
+    "description": "The Wisconsin Cranberry Board issues annual calls for proposals for both research and education/promotion projects. Proposals from university researchers, extension specialists, and qualified organizations are welcome.",
+    "linkText": "View Funding Opportunities",
+    "linkUrl": "https://admin.cals.wisc.edu/offices/research-division/commodity-board-funding-opportunities/"
+  }
+}

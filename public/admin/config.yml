@@ -1,0 +1,460 @@
+backend:
+  name: github
+  repo: mossjm/wcboard.org
+  branch: main
+
+media_folder: public/images
+public_folder: /images
+
+collections:
+  # ─── Meetings (folder collection) ─────────────────────────────────
+  - name: meetings
+    label: Meetings & Events
+    folder: src/content/meetings
+    create: true
+    slug: "{{fields.date}}-{{slug}}"
+    extension: md
+    format: yaml-frontmatter
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: date, label: Date, widget: string, hint: "ISO format: YYYY-MM-DD" }
+      - { name: time, label: Start Time, widget: string, required: false, hint: "e.g. 10:00 AM CT" }
+      - { name: endTime, label: End Time, widget: string, required: false, hint: "e.g. 12:00 PM CT" }
+      - { name: location, label: Location, widget: string, required: false }
+      - { name: address, label: Address, widget: string, required: false }
+      - name: type
+        label: Event Type
+        widget: select
+        options:
+          - { label: Board Meeting, value: board-meeting }
+          - { label: Public Hearing, value: public-hearing }
+          - { label: Industry Event, value: industry-event }
+          - { label: Workshop, value: workshop }
+      - { name: description, label: Description, widget: text, required: false }
+      - { name: agenda, label: Agenda PDF URL, widget: string, required: false }
+      - { name: minutes, label: Minutes PDF URL, widget: string, required: false }
+      - { name: cancelled, label: Cancelled, widget: boolean, required: false, default: false }
+
+  # ─── Board Members (folder collection) ────────────────────────────
+  - name: board-members
+    label: Board Members
+    folder: src/content/board-members
+    create: true
+    slug: "{{fields.name | slugify}}"
+    extension: md
+    format: yaml-frontmatter
+    fields:
+      - { name: name, label: Name, widget: string }
+      - name: position
+        label: Position
+        widget: select
+        options: ["President", "Vice President", "Treasurer", "Secretary", "Board Member"]
+      - { name: location, label: Location, widget: string }
+      - { name: term, label: Term Info, widget: string, hint: "e.g. 3-year term or Term began Sept. 2024" }
+      - { name: headshot, label: Headshot, widget: image, required: false }
+      - { name: bio, label: Bio, widget: text, required: false }
+      - { name: order, label: Display Order, widget: number, value_type: int, min: 1 }
+
+  # ─── Page Content (file collections) ──────────────────────────────
+  - name: pages
+    label: Pages
+    files:
+      # ── Home Page ──
+      - name: home
+        label: Home Page
+        file: src/data/home.json
+        fields:
+          - name: hero
+            label: Hero Section
+            widget: object
+            fields:
+              - { name: badge, label: Badge Text, widget: string }
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
+              - { name: image, label: Background Image, widget: image }
+              - { name: imageAlt, label: Image Alt Text, widget: string }
+          - name: keyStats
+            label: Key Stats Bar
+            widget: list
+            max: 4
+            fields:
+              - { name: value, label: Value, widget: string, hint: "e.g. #1, 60%, 250+" }
+              - { name: label, label: Label, widget: string }
+          - name: mission
+            label: Mission Section
+            widget: object
+            fields:
+              - { name: badge, label: Badge, widget: string }
+              - { name: title, label: Title, widget: string }
+              - { name: paragraph1, label: Paragraph 1, widget: text }
+              - { name: paragraph2, label: Paragraph 2, widget: text }
+              - { name: linkText, label: Link Text, widget: string }
+              - { name: image, label: Image, widget: image }
+              - { name: imageAlt, label: Image Alt Text, widget: string }
+              - { name: sinceYear, label: Badge Year Text, widget: string }
+              - { name: sinceLabel, label: Badge Label, widget: string }
+          - name: pillars
+            label: Strategic Pillars
+            widget: list
+            max: 4
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
+          - name: industryStats
+            label: Industry Stats Section
+            widget: object
+            fields:
+              - { name: badge, label: Badge, widget: string }
+              - { name: title, label: Title, widget: string }
+              - { name: backgroundImage, label: Background Image, widget: image }
+              - name: stats
+                label: Statistics
+                widget: list
+                fields:
+                  - { name: value, label: Value, widget: string }
+                  - { name: label, label: Label, widget: string }
+                  - { name: detail, label: Detail, widget: string }
+          - name: getInvolved
+            label: Get Involved Section
+            widget: object
+            fields:
+              - { name: badge, label: Badge, widget: string }
+              - { name: title, label: Title, widget: string }
+              - name: cards
+                label: Cards
+                widget: list
+                max: 3
+                fields:
+                  - { name: title, label: Title, widget: string }
+                  - { name: description, label: Description, widget: text }
+                  - { name: image, label: Image, widget: image }
+                  - { name: imageAlt, label: Image Alt Text, widget: string }
+                  - { name: link, label: Link URL, widget: string }
+                  - { name: linkText, label: Link Text, widget: string }
+          - name: investments
+            label: Investments Section
+            widget: object
+            fields:
+              - { name: badge, label: Badge, widget: string }
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
+              - { name: image, label: Image, widget: image }
+              - { name: imageAlt, label: Image Alt Text, widget: string }
+              - name: items
+                label: Investment Items
+                widget: list
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: detail, label: Detail, widget: string }
+              - { name: linkText, label: Link Text, widget: string }
+
+      # ── About Page ──
+      - name: about
+        label: About Page
+        file: src/data/about.json
+        fields:
+          - name: hero
+            label: Hero Section
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: subtitle, label: Subtitle, widget: string }
+              - { name: description, label: Description, widget: text }
+              - { name: image, label: Background Image, widget: image }
+              - { name: imageAlt, label: Image Alt Text, widget: string }
+          - name: mission
+            label: Mission
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: text, label: Text, widget: text }
+          - name: purpose
+            label: Purpose
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: text, label: Text, widget: text }
+              - { name: intro, label: Intro Line, widget: string }
+              - { name: items, label: Purpose Items, widget: list, field: { name: item, label: Item, widget: string } }
+          - name: funding
+            label: Funding Structure
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: text, label: Text, widget: text, hint: "HTML allowed for bold text" }
+              - { name: assessmentRate, label: Assessment Rate, widget: string }
+              - { name: assessmentLabel, label: Assessment Label, widget: string }
+              - { name: annualFunding, label: Annual Funding, widget: string }
+              - { name: annualFundingLabel, label: Annual Funding Label, widget: string }
+              - { name: note, label: Note, widget: text }
+          - name: history
+            label: History Timeline
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - name: entries
+                label: Timeline Entries
+                widget: list
+                fields:
+                  - { name: year, label: Year, widget: string }
+                  - { name: description, label: Description, widget: string }
+          - name: boardSection
+            label: Board Section
+            widget: object
+            fields:
+              - { name: badge, label: Badge, widget: string }
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
+              - { name: electionNote, label: Election Note, widget: text }
+          - name: staff
+            label: Staff
+            widget: object
+            fields:
+              - { name: badge, label: Badge, widget: string }
+              - { name: title, label: Section Title, widget: string }
+              - { name: description, label: Section Description, widget: text }
+              - { name: name, label: Staff Name, widget: string }
+              - { name: role, label: Role, widget: string }
+              - { name: headshot, label: Headshot, widget: image }
+              - { name: bio, label: Bio, widget: text }
+
+      # ── Grower Resources Page ──
+      - name: grower-resources
+        label: Grower Resources Page
+        file: src/data/grower-resources.json
+        fields:
+          - name: hero
+            label: Hero Section
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: subtitle, label: Subtitle, widget: string }
+              - { name: description, label: Description, widget: text }
+              - { name: image, label: Background Image, widget: image }
+              - { name: imageAlt, label: Image Alt Text, widget: string }
+          - name: assessment
+            label: Assessment Information
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
+              - { name: rateTitle, label: Rate Title, widget: string }
+              - { name: rateValue, label: Rate Value, widget: string }
+              - { name: rateUnit, label: Rate Unit, widget: string }
+              - { name: rateDescription, label: Rate Description, widget: text }
+              - { name: producerNote, label: Producer Note, widget: text }
+          - name: allocation
+            label: Allocation Breakdown
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - name: items
+                label: Items
+                widget: list
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: percentage, label: Percentage, widget: number, value_type: int, min: 0, max: 100 }
+                  - name: color
+                    label: Color
+                    widget: select
+                    options: ["cranberry", "forest", "earth"]
+              - { name: note, label: Note, widget: string }
+          - name: elections
+            label: Elections Section
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
+              - { name: howToRunTitle, label: How to Run Title, widget: string }
+              - { name: steps, label: Steps, widget: list, field: { name: step, label: Step, widget: string } }
+              - { name: meetingsTitle, label: Meetings Title, widget: string }
+              - { name: meetingsDescription, label: Meetings Description, widget: text }
+              - { name: meetingsPublicNote, label: Meetings Public Note, widget: string }
+              - { name: electionContactLabel, label: Election Contact Label, widget: string }
+              - { name: electionContactOrg, label: Election Contact Org, widget: string }
+              - { name: electionContactPhone, label: Election Contact Phone, widget: string }
+          - name: resources
+            label: Industry Resources
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: string }
+              - name: items
+                label: Resource Links
+                widget: list
+                fields:
+                  - { name: title, label: Title, widget: string }
+                  - { name: description, label: Description, widget: text }
+                  - { name: href, label: URL, widget: string }
+                  - { name: linkText, label: Link Text, widget: string }
+
+      # ── Programs & Research Page ──
+      - name: programs-research
+        label: Programs & Research Page
+        file: src/data/programs-research.json
+        fields:
+          - name: hero
+            label: Hero Section
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: subtitle, label: Subtitle, widget: string }
+              - { name: description, label: Description, widget: text }
+              - { name: image, label: Background Image, widget: image }
+              - { name: imageAlt, label: Image Alt Text, widget: string }
+          - name: funding
+            label: Funding Overview
+            widget: object
+            fields:
+              - { name: badge, label: Badge, widget: string }
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
+              - { name: researchCount, label: Research Project Count, widget: number, value_type: int }
+              - { name: researchLabel, label: Research Label, widget: string }
+              - { name: researchDetail, label: Research Detail, widget: string }
+              - { name: educationCount, label: Education Program Count, widget: number, value_type: int }
+              - { name: educationLabel, label: Education Label, widget: string }
+              - { name: educationDetail, label: Education Detail, widget: string }
+          - name: researchAreas
+            label: Research Focus Areas
+            widget: object
+            fields:
+              - { name: badge, label: Badge, widget: string }
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
+              - name: areas
+                label: Areas
+                widget: list
+                fields:
+                  - { name: title, label: Title, widget: string }
+                  - { name: description, label: Description, widget: text }
+          - name: partnerships
+            label: Research Partnerships
+            widget: object
+            fields:
+              - { name: badge, label: Badge, widget: string }
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
+              - name: partners
+                label: Partners
+                widget: list
+                fields:
+                  - { name: name, label: Name, widget: string }
+                  - { name: description, label: Description, widget: text }
+                  - { name: linkUrl, label: Link URL, widget: string }
+                  - { name: linkText, label: Link Text, widget: string }
+          - name: education
+            label: Education & Promotion
+            widget: object
+            fields:
+              - { name: badge, label: Badge, widget: string }
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
+              - name: items
+                label: Items
+                widget: list
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: detail, label: Detail, widget: string }
+              - { name: image, label: Image, widget: image }
+              - { name: imageAlt, label: Image Alt Text, widget: string }
+          - name: cta
+            label: Call for Proposals
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
+              - { name: linkText, label: Link Text, widget: string }
+              - { name: linkUrl, label: Link URL, widget: string }
+
+      # ── Consumers Page ──
+      - name: consumers
+        label: Consumers Page
+        file: src/data/consumers.json
+        fields:
+          - name: hero
+            label: Hero Section
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: subtitle, label: Subtitle, widget: string }
+              - { name: description, label: Description, widget: text }
+              - { name: image, label: Background Image, widget: image }
+              - { name: imageAlt, label: Image Alt Text, widget: string }
+          - name: funFacts
+            label: Fun Facts Section
+            widget: object
+            fields:
+              - { name: title, label: Section Title, widget: string }
+              - { name: image, label: Image, widget: image }
+              - { name: imageAlt, label: Image Alt Text, widget: string }
+              - name: facts
+                label: Facts
+                widget: list
+                fields:
+                  - { name: emoji, label: Emoji, widget: string }
+                  - { name: title, label: Title, widget: string }
+                  - { name: description, label: Description, widget: text }
+          - name: consumerCta
+            label: Consumer Resources CTA
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text, hint: "HTML allowed for bold text" }
+              - { name: primaryLink, label: Primary Link URL, widget: string }
+              - { name: primaryLabel, label: Primary Link Label, widget: string }
+              - { name: secondaryLink, label: Secondary Link URL, widget: string }
+              - { name: secondaryLabel, label: Secondary Link Label, widget: string }
+
+      # ── Contact Page ──
+      - name: contact
+        label: Contact Page
+        file: src/data/contact.json
+        fields:
+          - name: hero
+            label: Hero Section
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: subtitle, label: Subtitle, widget: string }
+              - { name: description, label: Description, widget: text }
+              - { name: image, label: Background Image, widget: image }
+              - { name: imageAlt, label: Image Alt Text, widget: string }
+          - name: form
+            label: Form Section
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
+          - name: office
+            label: Board Office
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: addressLine1, label: Address Line 1, widget: string }
+              - { name: addressLine2, label: Address Line 2, widget: string }
+              - { name: addressLine3, label: Address Line 3, widget: string }
+              - { name: phone, label: Phone, widget: string }
+              - { name: phoneHref, label: Phone Link, widget: string, hint: "e.g. tel:7154232070" }
+          - name: datcp
+            label: DATCP Contact
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
+              - { name: phone, label: Phone, widget: string }
+              - { name: phoneHref, label: Phone Link, widget: string }
+              - { name: orgName, label: Organization Name, widget: string }
+              - { name: orgLocation, label: Location, widget: string }
+          - name: quickLinks
+            label: Quick Links
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - name: links
+                label: Links
+                widget: list
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: href, label: URL, widget: string }
+                  - { name: external, label: External Link, widget: boolean, default: false }

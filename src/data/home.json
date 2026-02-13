@@ -1,0 +1,100 @@
+{
+  "hero": {
+    "badge": "Wisconsin's #1 Fruit Crop",
+    "title": "Leading the Nation in Cranberry Production",
+    "description": "Wisconsin is the leading cranberry-producing state in the nation, with a proud history of family farms, groundbreaking research, and environmental stewardship spanning over 170 years.",
+    "image": "/images/stock/cranberry-harvest-3.jpg",
+    "imageAlt": "Aerial view of Wisconsin cranberry harvest with vibrant red cranberries floating in flooded bogs"
+  },
+  "keyStats": [
+    { "value": "#1", "label": "Cranberry-Producing State" },
+    { "value": "60%", "label": "of U.S. Cranberries" },
+    { "value": "250+", "label": "Family Farms" },
+    { "value": "$1B", "label": "Annual Economic Impact" }
+  ],
+  "mission": {
+    "badge": "Our Mission",
+    "title": "Investing in Wisconsin's Cranberry Future",
+    "paragraph1": "Funded by grower assessments and led by a board of elected Wisconsin cranberry growers, the Wisconsin Cranberry Board invests in projects that benefit growers, strengthen markets, and support long-term industry success.",
+    "paragraph2": "Established in 1983, the Board operates under state statute and is administered by the Wisconsin Department of Agriculture, Trade and Consumer Protection (DATCP). Through strategic reinvestment of grower assessment funds, we advance research, education, and promotion initiatives that keep Wisconsin at the forefront of cranberry production.",
+    "linkText": "Learn more about the Board",
+    "image": "/images/stock/cranberry-marsh-1.jpg",
+    "imageAlt": "Freshly harvested Wisconsin cranberries in collection bins at a cranberry marsh",
+    "sinceYear": "Since 1983",
+    "sinceLabel": "Supporting WI Growers"
+  },
+  "pillars": [
+    {
+      "title": "Research & Innovation",
+      "description": "Funds cutting-edge research to improve production practices, sustainability, pest management, and crop quality for Wisconsin growers."
+    },
+    {
+      "title": "Promotion & Education",
+      "description": "Supports efforts that build demand and increase consumer understanding of Wisconsin cranberries and their many health benefits."
+    },
+    {
+      "title": "Industry Advancement",
+      "description": "Invests in projects that strengthen the future of Wisconsin's cranberry industry through innovation and long-term strategic planning."
+    },
+    {
+      "title": "Stewardship",
+      "description": "Encourages responsible growing practices and environmental care across Wisconsin's 20,000+ acres of cranberry production."
+    }
+  ],
+  "industryStats": {
+    "badge": "By the Numbers",
+    "title": "Wisconsin Cranberry Industry",
+    "backgroundImage": "/images/stock/cranberry-closeup-3.jpg",
+    "stats": [
+      { "value": "20,000+", "label": "Acres in Production", "detail": "Across 20 Wisconsin counties" },
+      { "value": "5.5M", "label": "Barrels Produced (2024)", "detail": "~61% of the U.S. crop" },
+      { "value": "4,000", "label": "Jobs Supported", "detail": "Across Wisconsin communities" },
+      { "value": "31+", "label": "Consecutive Years at #1", "detail": "Leading U.S. producer since 1994" },
+      { "value": "170+", "label": "Years of Heritage", "detail": "Commercial production since 1850s" },
+      { "value": "$577K", "label": "2025 Grant Funding", "detail": "Invested in research & education" }
+    ]
+  },
+  "getInvolved": {
+    "badge": "Get Involved",
+    "title": "How Can We Help?",
+    "cards": [
+      {
+        "title": "For Our Growers",
+        "description": "Access resources, research findings, and information about Board programs designed to support Wisconsin cranberry growers.",
+        "image": "/images/stock/cranberry-bog-1.jpg",
+        "imageAlt": "Cranberry harvest operations in Wisconsin",
+        "link": "/grower-resources",
+        "linkText": "Grower Resources"
+      },
+      {
+        "title": "Programs & Research",
+        "description": "Explore the research projects and educational programs funded by the Board to advance Wisconsin's cranberry industry.",
+        "image": "/images/stock/cranberry-vines-summer.jpg",
+        "imageAlt": "Cranberry vines growing in a Wisconsin bog during summer",
+        "link": "/programs-research",
+        "linkText": "View Programs"
+      },
+      {
+        "title": "Experience WI Cranberries",
+        "description": "Discover Wisconsin's state fruit — from bog to table. Learn about cranberry nutrition, recipes, and festivals.",
+        "image": "/images/stock/cranberry-closeup-4.jpg",
+        "imageAlt": "Close-up of fresh ripe Wisconsin cranberries",
+        "link": "/consumers",
+        "linkText": "Learn More"
+      }
+    ]
+  },
+  "investments": {
+    "badge": "2025 Investments",
+    "title": "$577,138 Reinvested in Wisconsin's Cranberry Industry",
+    "description": "The Wisconsin Cranberry Board has committed significant funding to advance the industry through research, education, and grower support programs.",
+    "image": "/images/stock/cranberry-harvest-4.jpg",
+    "imageAlt": "Wisconsin cranberry marsh during fall harvest season with equipment working the bog",
+    "items": [
+      { "label": "9 Research Projects", "detail": "— advancing sustainable practices, pest management, and crop quality" },
+      { "label": "5 Education Programs", "detail": "— building public awareness and grower knowledge" },
+      { "label": "Assessment Rate Increased", "detail": "— to 25¢/barrel to expand capacity for current and future priorities" }
+    ],
+    "linkText": "See all programs & research"
+  }
+}

@@ -18,4 +18,17 @@ const meetings = defineCollection({
   }),
 });
 
-export const collections = { meetings };
+const boardMembers = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/board-members' }),
+  schema: z.object({
+    name: z.string(),
+    position: z.string(),
+    location: z.string(),
+    term: z.string(),
+    headshot: z.string().optional(),
+    bio: z.string().optional(),
+    order: z.number(),
+  }),
+});
+
+export const collections = { meetings, 'board-members': boardMembers };

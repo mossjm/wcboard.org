@@ -1,0 +1,38 @@
+{
+  "hero": {
+    "title": "Contact Us",
+    "subtitle": "Get in Touch",
+    "description": "Have questions about the Wisconsin Cranberry Board, grower assessments, research programs, or board elections? We're here to help.",
+    "image": "/images/stock/cranberry-harvest-1.jpg",
+    "imageAlt": "Panoramic view of a Wisconsin cranberry bog during harvest"
+  },
+  "form": {
+    "title": "Send Us a Message",
+    "description": "Fill out the form below and we'll get back to you as soon as possible. For urgent inquiries, please call us directly."
+  },
+  "office": {
+    "title": "Board Office",
+    "addressLine1": "Wisconsin Cranberry Board",
+    "addressLine2": "P.O. Box 1351",
+    "addressLine3": "Wisconsin Rapids, WI 54494",
+    "phone": "(715) 423-2070",
+    "phoneHref": "tel:7154232070"
+  },
+  "datcp": {
+    "title": "Election Questions?",
+    "description": "For questions about Board elections, nominations, and voting, contact the DATCP Market Orders Program.",
+    "phone": "(608) 224-5046",
+    "phoneHref": "tel:6082245046",
+    "orgName": "DATCP Market Orders Program",
+    "orgLocation": "Madison, Wisconsin"
+  },
+  "quickLinks": {
+    "title": "Quick Links",
+    "links": [
+      { "label": "About the Board", "href": "/about", "external": false },
+      { "label": "Grower Resources", "href": "/grower-resources", "external": false },
+      { "label": "Programs & Research", "href": "/programs-research", "external": false },
+      { "label": "DATCP Board Page", "href": "https://datcp.wi.gov/Pages/AgDevelopment/WisconsinCranberryBoard.aspx", "external": true }
+    ]
+  }
+}

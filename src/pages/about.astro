@@ -3,26 +3,25 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import BoardMemberCard from '../components/BoardMemberCard.astro';
+import { getCollection } from 'astro:content';
+import data from '../data/about.json';
 
-const boardMembers = [
-  { name: 'John Moss', position: 'President', location: 'Wisconsin Rapids', term: '3-year term', headshot: '/images/headshots/john.jpeg', bio: 'John Moss is a Wisconsin cranberry grower based in Wisconsin Rapids and currently serves as President of the Wisconsin Cranberry Board.' },
-  { name: 'Amy Gebhardt', position: 'Treasurer', location: 'Warrens', term: '3-year term', headshot: '/images/headshots/amy.jpg', bio: 'Amy Gebhardt serves as Treasurer of the Wisconsin Cranberry Board, representing growers in the Warrens area.' },
-  { name: 'Nicole Hansen', position: 'Board Member', location: 'Necedah', term: 'Term began Sept. 2024', headshot: '/images/headshots/nicole.png', bio: 'Nicole Hansen is a cranberry grower from Necedah who was elected to the Board in 2024.' },
-  { name: 'David Bartling', position: 'Board Member', location: 'Manitowish Waters', term: 'Term began Sept. 2024', headshot: '/images/headshots/david.jpeg', bio: 'David Bartling represents northern Wisconsin cranberry growers from his operation in Manitowish Waters.' },
-  { name: 'Jon Duckart', position: 'Board Member', location: 'Wisconsin Rapids', term: 'Term began Sept. 2025', headshot: '/images/headshots/jon.jpg', bio: 'Jon Duckart is a cranberry grower in the Wisconsin Rapids area, elected to the Board in 2025.' },
-  { name: 'Amber Bristow', position: 'Board Member', location: 'Warrens', term: 'Term began Sept. 2025', headshot: '/images/headshots/amber.jpg', bio: 'Amber Bristow is a cranberry grower based in Warrens, elected to the Board in 2025.' },
-  { name: 'Rochelle Hoffman', position: 'Board Member', location: 'Tomah', term: 'Term began Sept. 2025', headshot: '/images/headshots/rochelle.jpeg', bio: 'Rochelle Hoffman represents cranberry growers in the Tomah region, elected to the Board in 2025.' },
-];
+const boardMembersData = await getCollection('board-members');
+const boardMembers = boardMembersData
+  .sort((a, b) => a.data.order - b.data.order)
+  .map(m => m.data);
+
+const { hero, mission, purpose, funding, history, boardSection, staff } = data;
 ---
 
 <Layout title="About" description="Learn about the Wisconsin Cranberry Board's mission, purpose, funding structure, and the grower-elected board members who guide the industry.">
-  
+
   <Hero
-    title="Advancing Wisconsin's Cranberry Industry"
-    subtitle="About the Board"
-    description="The Wisconsin Cranberry Board is a grower-led organization dedicated to strengthening the state's cranberry industry through strategic investments and collaborative partnerships."
-    image="/images/stock/cranberry-marsh-2.jpg"
-    imageAlt="Wisconsin cranberry marsh landscape with autumn colors"
+    title={hero.title}
+    subtitle={hero.subtitle}
+    description={hero.description}
+    image={hero.image}
+    imageAlt={hero.imageAlt}
   />
 
   <Breadcrumb items={[{ label: 'About' }]} />
@@ -32,94 +31,56 @@ const boardMembers = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-16">
         <div>
-          <h2 id="mission-heading" class="text-3xl font-bold text-cranberry-950 font-heading mb-6">Our Mission</h2>
+          <h2 id="mission-heading" class="text-3xl font-bold text-cranberry-950 font-heading mb-6">{mission.title}</h2>
           <p class="text-earth-700 text-lg leading-relaxed mb-8">
-            The Wisconsin Cranberry Board's mission is to support and advance Wisconsin's cranberry industry through strategic investments in research, promotion, and education that benefit growers and strengthen the industry's long-term success.
+            {mission.text}
           </p>
 
-          <h3 class="text-3xl font-bold text-cranberry-950 font-heading mb-6">Our Purpose</h3>
+          <h3 class="text-3xl font-bold text-cranberry-950 font-heading mb-6">{purpose.title}</h3>
           <p class="text-earth-700 text-lg leading-relaxed mb-6">
-            The Wisconsin Cranberry Board exists to responsibly invest grower assessment funds in programs and initiatives that support a competitive, sustainable, and resilient cranberry industry in Wisconsin.
+            {purpose.text}
           </p>
-          <p class="text-earth-600 leading-relaxed mb-4">Specifically, the Board:</p>
+          <p class="text-earth-600 leading-relaxed mb-4">{purpose.intro}</p>
           <ul class="space-y-3 mb-8" role="list">
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-cranberry-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-              <span class="text-earth-700">Funds research that improves production practices, sustainability, and industry knowledge</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-cranberry-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-              <span class="text-earth-700">Supports promotion and education efforts that build understanding and demand for cranberries</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-cranberry-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-              <span class="text-earth-700">Encourages innovation and long-term planning to strengthen the future of the industry</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-cranberry-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-              <span class="text-earth-700">Operates under state statute and is guided by a board of Wisconsin cranberry growers</span>
-            </li>
+            {purpose.items.map((item) => (
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-cranberry-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span class="text-earth-700">{item}</span>
+              </li>
+            ))}
           </ul>
         </div>
 
         <div>
           <!-- Funding Structure -->
           <div class="bg-white rounded-2xl p-8 shadow-sm border border-warm-200 mb-8">
-            <h3 class="text-2xl font-bold text-cranberry-950 font-heading mb-4">Funding Structure</h3>
-            <p class="text-earth-700 leading-relaxed mb-6">
-              The Wisconsin Cranberry Board is funded through a grower assessment collected on each barrel of cranberries produced in Wisconsin. For the 2025 growing season, board members unanimously voted to increase the assessment rate to <strong>25 cents per barrel</strong>, bolstering support for current and future priorities.
-            </p>
+            <h3 class="text-2xl font-bold text-cranberry-950 font-heading mb-4">{funding.title}</h3>
+            <p class="text-earth-700 leading-relaxed mb-6" set:html={funding.text} />
             <div class="grid grid-cols-2 gap-4">
               <div class="bg-cranberry-50 rounded-xl p-4 text-center">
-                <div class="text-2xl font-bold text-cranberry-800 font-heading">25¢</div>
-                <div class="text-earth-600 text-xs mt-1">Per Barrel Assessment</div>
+                <div class="text-2xl font-bold text-cranberry-800 font-heading">{funding.assessmentRate}</div>
+                <div class="text-earth-600 text-xs mt-1">{funding.assessmentLabel}</div>
               </div>
               <div class="bg-cranberry-50 rounded-xl p-4 text-center">
-                <div class="text-2xl font-bold text-cranberry-800 font-heading">~$577K</div>
-                <div class="text-earth-600 text-xs mt-1">Annual Funding (2025)</div>
+                <div class="text-2xl font-bold text-cranberry-800 font-heading">{funding.annualFunding}</div>
+                <div class="text-earth-600 text-xs mt-1">{funding.annualFundingLabel}</div>
               </div>
             </div>
             <p class="text-earth-600 text-sm mt-4 leading-relaxed">
-              The Board frequently partners with industry organizations, universities, and other collaborators to co-fund projects, amplifying the impact of grower investments.
+              {funding.note}
             </p>
           </div>
 
           <!-- History Highlights -->
           <div class="bg-cranberry-900 rounded-2xl p-8 text-white">
-            <h3 class="text-2xl font-bold font-heading mb-4">A Rich Heritage</h3>
+            <h3 class="text-2xl font-bold font-heading mb-4">{history.title}</h3>
             <dl class="space-y-4 text-sm">
-              <div class="flex items-start gap-3">
-                <dt class="text-cranberry-300 font-bold font-heading text-lg min-w-[4rem]">1830s</dt>
-                <dd class="text-cranberry-100">First cultivated cranberry marshes established in Wisconsin — before statehood</dd>
-              </div>
-              <div class="flex items-start gap-3">
-                <dt class="text-cranberry-300 font-bold font-heading text-lg min-w-[4rem]">1850s</dt>
-                <dd class="text-cranberry-100">Commercial cranberry production begins near Berlin, Green Lake County</dd>
-              </div>
-              <div class="flex items-start gap-3">
-                <dt class="text-cranberry-300 font-bold font-heading text-lg min-w-[4rem]">1867</dt>
-                <dd class="text-cranberry-100">Wisconsin legislature passes the Cranberry Law, granting growers water management rights</dd>
-              </div>
-              <div class="flex items-start gap-3">
-                <dt class="text-cranberry-300 font-bold font-heading text-lg min-w-[4rem]">1887</dt>
-                <dd class="text-cranberry-100">Wisconsin State Cranberry Growers Association (WSCGA) founded</dd>
-              </div>
-              <div class="flex items-start gap-3">
-                <dt class="text-cranberry-300 font-bold font-heading text-lg min-w-[4rem]">1983</dt>
-                <dd class="text-cranberry-100">Wisconsin Cranberry Board established as a market order board under DATCP</dd>
-              </div>
-              <div class="flex items-start gap-3">
-                <dt class="text-cranberry-300 font-bold font-heading text-lg min-w-[4rem]">1994</dt>
-                <dd class="text-cranberry-100">Wisconsin becomes the #1 cranberry-producing state, surpassing Massachusetts</dd>
-              </div>
-              <div class="flex items-start gap-3">
-                <dt class="text-cranberry-300 font-bold font-heading text-lg min-w-[4rem]">2022</dt>
-                <dd class="text-cranberry-100">Wisconsin Cranberry Research Station grand opening near Black River Falls</dd>
-              </div>
-              <div class="flex items-start gap-3">
-                <dt class="text-cranberry-300 font-bold font-heading text-lg min-w-[4rem]">Today</dt>
-                <dd class="text-cranberry-100">31+ consecutive years as America's leading cranberry producer</dd>
-              </div>
+              {history.entries.map((entry) => (
+                <div class="flex items-start gap-3">
+                  <dt class="text-cranberry-300 font-bold font-heading text-lg min-w-[4rem]">{entry.year}</dt>
+                  <dd class="text-cranberry-100">{entry.description}</dd>
+                </div>
+              ))}
             </dl>
           </div>
         </div>
@@ -131,10 +92,10 @@ const boardMembers = [
   <section class="py-20 lg:py-28 bg-white border-t border-warm-200" aria-labelledby="board-heading">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <p class="text-cranberry-700 text-sm font-semibold uppercase tracking-widest mb-3">Board of Directors</p>
-        <h2 id="board-heading" class="text-3xl sm:text-4xl font-bold text-cranberry-950 font-heading mb-4">Grower-Led Governance</h2>
+        <p class="text-cranberry-700 text-sm font-semibold uppercase tracking-widest mb-3">{boardSection.badge}</p>
+        <h2 id="board-heading" class="text-3xl sm:text-4xl font-bold text-cranberry-950 font-heading mb-4">{boardSection.title}</h2>
         <p class="text-earth-600 max-w-2xl mx-auto">
-          The Wisconsin Cranberry Board is governed by seven Wisconsin cranberry growers, each elected to serve a three-year term. Board members volunteer their time to guide the strategic direction of the organization.
+          {boardSection.description}
         </p>
       </div>
 
@@ -147,7 +108,11 @@ const boardMembers = [
       </div>
 
       <p class="text-center text-earth-600 text-sm mt-10">
-        Elections are administered by DATCP. For questions about elections, contact the DATCP Market Orders Program at <a href="tel:6082245046" class="text-cranberry-700 hover:text-cranberry-800 underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cranberry-700 rounded-sm">(608) 224-5046</a>.
+        {boardSection.electionNote.includes('(608)') ? (
+          <Fragment set:html={boardSection.electionNote.replace('(608) 224-5046', '<a href="tel:6082245046" class="text-cranberry-700 hover:text-cranberry-800 underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cranberry-700 rounded-sm">(608) 224-5046</a>')} />
+        ) : (
+          boardSection.electionNote
+        )}
       </p>
     </div>
   </section>
@@ -156,24 +121,24 @@ const boardMembers = [
   <section class="py-20 lg:py-28 bg-warm-50 border-t border-warm-200" aria-labelledby="staff-heading">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl mx-auto text-center">
-        <p class="text-cranberry-700 text-sm font-semibold uppercase tracking-widest mb-3">Staff</p>
-        <h2 id="staff-heading" class="text-3xl font-bold text-cranberry-950 font-heading mb-4">Board Administration</h2>
+        <p class="text-cranberry-700 text-sm font-semibold uppercase tracking-widest mb-3">{staff.badge}</p>
+        <h2 id="staff-heading" class="text-3xl font-bold text-cranberry-950 font-heading mb-4">{staff.title}</h2>
         <p class="text-earth-600 mb-12">
-          Staff supports the Board's work by administering programs, coordinating projects, and managing day-to-day operations.
+          {staff.description}
         </p>
 
         <article class="bg-white rounded-2xl p-8 shadow-sm border border-warm-200 max-w-md mx-auto">
-          <img 
-            src="/images/headshots/grant.jpg" 
-            alt="Portrait of Grant Holley, Executive Director"
+          <img
+            src={staff.headshot}
+            alt={`Portrait of ${staff.name}, ${staff.role}`}
             class="w-24 h-24 rounded-full object-cover mx-auto mb-4 ring-3 ring-cranberry-100"
             loading="lazy"
             decoding="async"
           />
-          <h3 class="text-xl font-bold text-cranberry-900 font-heading">Grant Holley</h3>
-          <p class="text-cranberry-600 font-medium">Executive Director</p>
+          <h3 class="text-xl font-bold text-cranberry-900 font-heading">{staff.name}</h3>
+          <p class="text-cranberry-600 font-medium">{staff.role}</p>
           <p class="text-earth-600 text-sm mt-4 leading-relaxed">
-            Grant Holley serves as Executive Director, overseeing the Board's grant funding, research partnerships, and educational programs. He also serves as Executive Director of the Wisconsin State Cranberry Growers Association (WSCGA).
+            {staff.bio}
           </p>
         </article>
       </div>

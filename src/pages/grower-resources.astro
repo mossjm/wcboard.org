@@ -3,16 +3,25 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import ResourceCard from '../components/ResourceCard.astro';
+import data from '../data/grower-resources.json';
+
+const { hero, assessment, allocation, elections, resources } = data;
+
+const colorMap: Record<string, { bar: string; }> = {
+  cranberry: { bar: 'bg-cranberry-600' },
+  forest: { bar: 'bg-forest-600' },
+  earth: { bar: 'bg-earth-500' },
+};
 ---
 
 <Layout title="Grower Resources" description="Resources, information, and support for Wisconsin cranberry growers from the Wisconsin Cranberry Board.">
-  
+
   <Hero
-    title="Grower Resources"
-    subtitle="For Our Growers"
-    description="The Wisconsin Cranberry Board provides resources and information to help Wisconsin cranberry growers make informed decisions, adopt best practices, and thrive in the industry."
-    image="/images/stock/cranberry-bog-1.jpg"
-    imageAlt="Wisconsin cranberry harvest operations with equipment loading trucks"
+    title={hero.title}
+    subtitle={hero.subtitle}
+    description={hero.description}
+    image={hero.image}
+    imageAlt={hero.imageAlt}
   />
 
   <Breadcrumb items={[{ label: 'Grower Resources' }]} />
@@ -22,60 +31,47 @@ import ResourceCard from '../components/ResourceCard.astro';
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-16 items-start">
         <div>
-          <h2 id="assessment-heading" class="text-3xl font-bold text-cranberry-950 font-heading mb-6">Grower Assessment</h2>
+          <h2 id="assessment-heading" class="text-3xl font-bold text-cranberry-950 font-heading mb-6">{assessment.title}</h2>
           <p class="text-earth-700 text-lg leading-relaxed mb-6">
-            The Wisconsin Cranberry Board is funded through a grower assessment on each barrel of cranberries produced in Wisconsin. These funds are reinvested directly into programs that benefit the entire cranberry industry.
+            {assessment.description}
           </p>
           <div class="bg-white rounded-2xl p-8 border border-warm-200 shadow-sm mb-8">
-            <h3 class="text-xl font-bold text-cranberry-900 font-heading mb-4">2025 Assessment Rate</h3>
+            <h3 class="text-xl font-bold text-cranberry-900 font-heading mb-4">{assessment.rateTitle}</h3>
             <div class="flex items-center gap-4 mb-4">
-              <div class="text-4xl font-bold text-cranberry-700 font-heading">25¢</div>
-              <div class="text-earth-600">per barrel of cranberries produced</div>
+              <div class="text-4xl font-bold text-cranberry-700 font-heading">{assessment.rateValue}</div>
+              <div class="text-earth-600">{assessment.rateUnit}</div>
             </div>
             <p class="text-earth-600 text-sm leading-relaxed">
-              The Board unanimously voted to increase the assessment rate from 10¢ to 25¢ per barrel for the 2025 growing season. This increase bolsters support for current projects and ensures resources are available to address future industry challenges.
+              {assessment.rateDescription}
             </p>
           </div>
           <p class="text-earth-600 leading-relaxed">
-            More than 300 licensed cranberry producers across Wisconsin contribute to the assessment, which generates approximately $550,000+ annually in funding for research, education, and promotion programs.
+            {assessment.producerNote}
           </p>
         </div>
 
         <div class="space-y-6">
           <!-- Where Your Assessment Goes -->
           <div class="bg-white rounded-2xl p-8 border border-warm-200 shadow-sm">
-            <h3 class="text-xl font-bold text-cranberry-900 font-heading mb-6">Where Your Assessment Goes</h3>
+            <h3 class="text-xl font-bold text-cranberry-900 font-heading mb-6">{allocation.title}</h3>
             <div class="space-y-5">
-              <div>
-                <div class="flex justify-between items-center mb-2">
-                  <span class="text-earth-700 font-medium">Research Projects</span>
-                  <span class="text-cranberry-700 font-bold">~40%</span>
-                </div>
-                <div class="w-full bg-warm-100 rounded-full h-3" role="progressbar" aria-valuenow={40} aria-valuemin={0} aria-valuemax={100} aria-label="Research Projects: approximately 40%">
-                  <div class="bg-cranberry-600 h-3 rounded-full" style="width: 40%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between items-center mb-2">
-                  <span class="text-earth-700 font-medium">Education & Promotion</span>
-                  <span class="text-cranberry-700 font-bold">~45%</span>
-                </div>
-                <div class="w-full bg-warm-100 rounded-full h-3" role="progressbar" aria-valuenow={45} aria-valuemin={0} aria-valuemax={100} aria-label="Education and Promotion: approximately 45%">
-                  <div class="bg-forest-600 h-3 rounded-full" style="width: 45%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between items-center mb-2">
-                  <span class="text-earth-700 font-medium">Administration</span>
-                  <span class="text-cranberry-700 font-bold">~15%</span>
-                </div>
-                <div class="w-full bg-warm-100 rounded-full h-3" role="progressbar" aria-valuenow={15} aria-valuemin={0} aria-valuemax={100} aria-label="Administration: approximately 15%">
-                  <div class="bg-earth-500 h-3 rounded-full" style="width: 15%"></div>
-                </div>
-              </div>
+              {allocation.items.map((item) => {
+                const colors = colorMap[item.color] || colorMap.cranberry;
+                return (
+                  <div>
+                    <div class="flex justify-between items-center mb-2">
+                      <span class="text-earth-700 font-medium">{item.label}</span>
+                      <span class="text-cranberry-700 font-bold">~{item.percentage}%</span>
+                    </div>
+                    <div class="w-full bg-warm-100 rounded-full h-3" role="progressbar" aria-valuenow={item.percentage} aria-valuemin={0} aria-valuemax={100} aria-label={`${item.label}: approximately ${item.percentage}%`}>
+                      <div class={`${colors.bar} h-3 rounded-full`} style={`width: ${item.percentage}%`}></div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
             <p class="text-earth-600 text-xs mt-4">
-              Approximate allocation — actual percentages vary by year based on Board priorities.
+              {allocation.note}
             </p>
           </div>
         </div>
@@ -87,50 +83,36 @@ import ResourceCard from '../components/ResourceCard.astro';
   <section class="py-20 lg:py-28 bg-white border-t border-warm-200" aria-labelledby="elections-heading">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto">
-        <h2 id="elections-heading" class="text-3xl font-bold text-cranberry-950 font-heading mb-6">Board Elections & Participation</h2>
+        <h2 id="elections-heading" class="text-3xl font-bold text-cranberry-950 font-heading mb-6">{elections.title}</h2>
         <p class="text-earth-700 text-lg leading-relaxed mb-8">
-          The Wisconsin Cranberry Board is composed of seven grower-members, each serving a three-year term. Elections are administered by DATCP, with nominations typically opening each April.
+          {elections.description}
         </p>
 
         <div class="grid md:grid-cols-2 gap-8 mb-12">
           <div class="bg-warm-50 rounded-2xl p-8 border border-warm-200">
-            <h3 class="text-xl font-bold text-cranberry-900 font-heading mb-4">How to Run for the Board</h3>
+            <h3 class="text-xl font-bold text-cranberry-900 font-heading mb-4">{elections.howToRunTitle}</h3>
             <ol class="space-y-3 text-earth-700 text-sm" role="list">
-              <li class="flex items-start gap-3">
-                <span class="bg-cranberry-700 text-white w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold" aria-hidden="true">1</span>
-                <span>Nominations open each April through DATCP</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="bg-cranberry-700 text-white w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold" aria-hidden="true">2</span>
-                <span>Must be a licensed Wisconsin cranberry producer</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="bg-cranberry-700 text-white w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold" aria-hidden="true">3</span>
-                <span>Submit nomination forms by the posted deadline</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="bg-cranberry-700 text-white w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold" aria-hidden="true">4</span>
-                <span>Ballots are mailed to all licensed producers</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="bg-cranberry-700 text-white w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold" aria-hidden="true">5</span>
-                <span>New terms begin September 1</span>
-              </li>
+              {elections.steps.map((step, i) => (
+                <li class="flex items-start gap-3">
+                  <span class="bg-cranberry-700 text-white w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold" aria-hidden="true">{i + 1}</span>
+                  <span>{step}</span>
+                </li>
+              ))}
             </ol>
           </div>
 
           <div class="bg-warm-50 rounded-2xl p-8 border border-warm-200">
-            <h3 class="text-xl font-bold text-cranberry-900 font-heading mb-4">Board Meetings</h3>
+            <h3 class="text-xl font-bold text-cranberry-900 font-heading mb-4">{elections.meetingsTitle}</h3>
             <p class="text-earth-700 text-sm leading-relaxed mb-4">
-              The Wisconsin Cranberry Board meets regularly throughout the year to review proposals, approve funding, and set strategic direction for the industry.
+              {elections.meetingsDescription}
             </p>
             <p class="text-earth-700 text-sm leading-relaxed mb-4">
-              Meetings are open to the public. For meeting schedules and agendas, contact the Board office.
+              {elections.meetingsPublicNote}
             </p>
             <div class="bg-cranberry-50 rounded-xl p-4">
-              <p class="text-cranberry-800 text-sm font-medium">Questions about elections?</p>
-              <p class="text-earth-600 text-sm">DATCP Market Orders Program<br />
-                <a href="tel:6082245046" class="text-cranberry-700 hover:text-cranberry-800 underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cranberry-700 rounded-sm">(608) 224-5046</a>
+              <p class="text-cranberry-800 text-sm font-medium">{elections.electionContactLabel}</p>
+              <p class="text-earth-600 text-sm">{elections.electionContactOrg}<br />
+                <a href={`tel:${elections.electionContactPhone.replace(/[^0-9]/g, '')}`} class="text-cranberry-700 hover:text-cranberry-800 underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cranberry-700 rounded-sm">{elections.electionContactPhone}</a>
               </p>
             </div>
           </div>
@@ -143,49 +125,21 @@ import ResourceCard from '../components/ResourceCard.astro';
   <section class="py-20 lg:py-28 bg-warm-50 border-t border-warm-200" aria-labelledby="resources-heading">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 id="resources-heading" class="text-3xl font-bold text-cranberry-950 font-heading mb-4">Industry Resources</h2>
+        <h2 id="resources-heading" class="text-3xl font-bold text-cranberry-950 font-heading mb-4">{resources.title}</h2>
         <p class="text-earth-600 max-w-2xl mx-auto">
-          Helpful links and resources for Wisconsin cranberry growers.
+          {resources.description}
         </p>
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <ResourceCard
-          title="WI Cranberry Growers Association"
-          description="The WSCGA provides educational resources, industry advocacy, and networking opportunities for Wisconsin cranberry growers."
-          href="https://www.wiscran.org"
-          linkText="Visit wiscran.org"
-        />
-        <ResourceCard
-          title="WI Cranberry Research Station"
-          description="The research station near Black River Falls hosts cutting-edge research projects to advance cranberry production and sustainability."
-          href="https://www.wisconsincranberryresearchstation.org"
-          linkText="Learn More"
-        />
-        <ResourceCard
-          title="UW-Madison Cranberry Resources"
-          description="Research-based information on cranberry cultivation, pest management, and sustainability from UW-Madison Extension."
-          href="https://fruit.wisc.edu/cranberries/"
-          linkText="Visit UW Resources"
-        />
-        <ResourceCard
-          title="Integrated Pest & Crop Management"
-          description="UW-Madison's program brings research-based pest management and nutrient management information to Wisconsin farmers."
-          href="https://ipcm.wisc.edu"
-          linkText="Visit IPCM"
-        />
-        <ResourceCard
-          title="DATCP — Cranberry Board Page"
-          description="Official DATCP page for the Wisconsin Cranberry Board, including election information and regulatory details."
-          href="https://datcp.wi.gov/Pages/AgDevelopment/WisconsinCranberryBoard.aspx"
-          linkText="Visit DATCP"
-        />
-        <ResourceCard
-          title="Research Funding Opportunities"
-          description="Information from UW-Madison CALS about the WCB's annual calls for proposals for research and education projects."
-          href="https://admin.cals.wisc.edu/offices/research-division/commodity-board-funding-opportunities/"
-          linkText="View Opportunities"
-        />
+        {resources.items.map((resource) => (
+          <ResourceCard
+            title={resource.title}
+            description={resource.description}
+            href={resource.href}
+            linkText={resource.linkText}
+          />
+        ))}
       </div>
     </div>
   </section>

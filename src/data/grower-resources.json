@@ -1,0 +1,87 @@
+{
+  "hero": {
+    "title": "Grower Resources",
+    "subtitle": "For Our Growers",
+    "description": "The Wisconsin Cranberry Board provides resources and information to help Wisconsin cranberry growers make informed decisions, adopt best practices, and thrive in the industry.",
+    "image": "/images/stock/cranberry-bog-1.jpg",
+    "imageAlt": "Wisconsin cranberry harvest operations with equipment loading trucks"
+  },
+  "assessment": {
+    "title": "Grower Assessment",
+    "description": "The Wisconsin Cranberry Board is funded through a grower assessment on each barrel of cranberries produced in Wisconsin. These funds are reinvested directly into programs that benefit the entire cranberry industry.",
+    "rateTitle": "2025 Assessment Rate",
+    "rateValue": "25¢",
+    "rateUnit": "per barrel of cranberries produced",
+    "rateDescription": "The Board unanimously voted to increase the assessment rate from 10¢ to 25¢ per barrel for the 2025 growing season. This increase bolsters support for current projects and ensures resources are available to address future industry challenges.",
+    "producerNote": "More than 300 licensed cranberry producers across Wisconsin contribute to the assessment, which generates approximately $550,000+ annually in funding for research, education, and promotion programs."
+  },
+  "allocation": {
+    "title": "Where Your Assessment Goes",
+    "items": [
+      { "label": "Research Projects", "percentage": 40, "color": "cranberry" },
+      { "label": "Education & Promotion", "percentage": 45, "color": "forest" },
+      { "label": "Administration", "percentage": 15, "color": "earth" }
+    ],
+    "note": "Approximate allocation — actual percentages vary by year based on Board priorities."
+  },
+  "elections": {
+    "title": "Board Elections & Participation",
+    "description": "The Wisconsin Cranberry Board is composed of seven grower-members, each serving a three-year term. Elections are administered by DATCP, with nominations typically opening each April.",
+    "howToRunTitle": "How to Run for the Board",
+    "steps": [
+      "Nominations open each April through DATCP",
+      "Must be a licensed Wisconsin cranberry producer",
+      "Submit nomination forms by the posted deadline",
+      "Ballots are mailed to all licensed producers",
+      "New terms begin September 1"
+    ],
+    "meetingsTitle": "Board Meetings",
+    "meetingsDescription": "The Wisconsin Cranberry Board meets regularly throughout the year to review proposals, approve funding, and set strategic direction for the industry.",
+    "meetingsPublicNote": "Meetings are open to the public. For meeting schedules and agendas, contact the Board office.",
+    "electionContactLabel": "Questions about elections?",
+    "electionContactOrg": "DATCP Market Orders Program",
+    "electionContactPhone": "(608) 224-5046"
+  },
+  "resources": {
+    "title": "Industry Resources",
+    "description": "Helpful links and resources for Wisconsin cranberry growers.",
+    "items": [
+      {
+        "title": "WI Cranberry Growers Association",
+        "description": "The WSCGA provides educational resources, industry advocacy, and networking opportunities for Wisconsin cranberry growers.",
+        "href": "https://www.wiscran.org",
+        "linkText": "Visit wiscran.org"
+      },
+      {
+        "title": "WI Cranberry Research Station",
+        "description": "The research station near Black River Falls hosts cutting-edge research projects to advance cranberry production and sustainability.",
+        "href": "https://www.wisconsincranberryresearchstation.org",
+        "linkText": "Learn More"
+      },
+      {
+        "title": "UW-Madison Cranberry Resources",
+        "description": "Research-based information on cranberry cultivation, pest management, and sustainability from UW-Madison Extension.",
+        "href": "https://fruit.wisc.edu/cranberries/",
+        "linkText": "Visit UW Resources"
+      },
+      {
+        "title": "Integrated Pest & Crop Management",
+        "description": "UW-Madison's program brings research-based pest management and nutrient management information to Wisconsin farmers.",
+        "href": "https://ipcm.wisc.edu",
+        "linkText": "Visit IPCM"
+      },
+      {
+        "title": "DATCP — Cranberry Board Page",
+        "description": "Official DATCP page for the Wisconsin Cranberry Board, including election information and regulatory details.",
+        "href": "https://datcp.wi.gov/Pages/AgDevelopment/WisconsinCranberryBoard.aspx",
+        "linkText": "Visit DATCP"
+      },
+      {
+        "title": "Research Funding Opportunities",
+        "description": "Information from UW-Madison CALS about the WCB's annual calls for proposals for research and education projects.",
+        "href": "https://admin.cals.wisc.edu/offices/research-division/commodity-board-funding-opportunities/",
+        "linkText": "View Opportunities"
+      }
+    ]
+  }
+}
