@@ -8,25 +8,25 @@
   },
   "keyStats": [
     { "value": "#1", "label": "Cranberry-Producing State" },
-    { "value": "60%", "label": "of U.S. Cranberries" },
+    { "value": "2/3", "label": "of U.S. Cranberries" },
     { "value": "250+", "label": "Family Farms" },
     { "value": "$1B", "label": "Annual Economic Impact" }
   ],
   "mission": {
     "badge": "Our Mission",
     "title": "Investing in Wisconsin's Cranberry Future",
-    "paragraph1": "Funded by grower assessments and led by a board of elected Wisconsin cranberry growers, the Wisconsin Cranberry Board invests in projects that benefit growers, strengthen markets, and support long-term industry success.",
-    "paragraph2": "Established in 1983, the Board operates under state statute and is administered by the Wisconsin Department of Agriculture, Trade and Consumer Protection (DATCP). Through strategic reinvestment of grower assessment funds, we advance research, education, and promotion initiatives that keep Wisconsin at the forefront of cranberry production.",
-    "linkText": "Learn more about the Board",
-    "image": "/images/stock/cranberry-marsh-1.jpg",
-    "imageAlt": "Freshly harvested Wisconsin cranberries in collection bins at a cranberry marsh",
+    "paragraph1": "Funded by grower assessments and led by a board of elected Wisconsin cranberry growers, the Wisconsin Cranberry Board (WCB) invests in projects that benefit growers, strengthen markets, and support long-term industry success.",
+    "paragraph2": "Established in 1983, WCB operates under state statute and is administered by the Wisconsin Department of Agriculture, Trade and Consumer Protection (DATCP). Through strategic reinvestment of grower assessment funds, we advance research, education, and promotion initiatives that keep Wisconsin at the forefront of cranberry production.",
+    "linkText": "Learn more about WCB",
+    "image": "/images/stock/cranberry-floating-state.jpg",
+    "imageAlt": "Aerial view of cranberries floating in the shape of Wisconsin",
     "sinceYear": "Since 1983",
     "sinceLabel": "Supporting WI Growers"
   },
   "pillars": [
     {
       "title": "Research & Innovation",
-      "description": "Funds cutting-edge research to improve production practices, sustainability, pest management, and crop quality for Wisconsin growers."
+      "description": "Funds cutting-edge research to improve production practices, sustainability, pest management, crop quality and more for Wisconsin growers."
     },
     {
       "title": "Promotion & Education",
@@ -38,7 +38,7 @@
     },
     {
       "title": "Stewardship",
-      "description": "Encourages responsible growing practices and environmental care across Wisconsin's 20,000+ acres of cranberry production."
+      "description": "Encourages responsible growing practices and environmental care across Wisconsin's 25,000+ acres of cranberry production."
     }
   ],
   "industryStats": {
@@ -46,9 +46,9 @@
     "title": "Wisconsin Cranberry Industry",
     "backgroundImage": "/images/stock/cranberry-closeup-3.jpg",
     "stats": [
-      { "value": "20,000+", "label": "Acres in Production", "detail": "Across 20 Wisconsin counties" },
-      { "value": "5.5M", "label": "Barrels Produced (2024)", "detail": "~61% of the U.S. crop" },
-      { "value": "4,000", "label": "Jobs Supported", "detail": "Across Wisconsin communities" },
+      { "value": "25,000+", "label": "Acres in Production", "detail": "Across 19 Wisconsin Counties" },
+      { "value": "5.5M", "label": "Barrels Produced (2024)", "detail": "~2/3 of the U.S. crop" },
+      { "value": "4,000+", "label": "Jobs Supported", "detail": "Across Wisconsin communities" },
       { "value": "31+", "label": "Consecutive Years at #1", "detail": "Leading U.S. producer since 1994" },
       { "value": "170+", "label": "Years of Heritage", "detail": "Commercial production since 1850s" },
       { "value": "$577K", "label": "2025 Grant Funding", "detail": "Invested in research & education" }
@@ -60,7 +60,7 @@
     "cards": [
       {
         "title": "For Our Growers",
-        "description": "Access resources, research findings, and information about Board programs designed to support Wisconsin cranberry growers.",
+        "description": "Access resources, ongoing research, and information about WCB programs designed to support Wisconsin cranberry growers.",
         "image": "/images/stock/cranberry-bog-1.jpg",
         "imageAlt": "Cranberry harvest operations in Wisconsin",
         "link": "/grower-resources",
@@ -68,7 +68,7 @@
       },
       {
         "title": "Programs & Research",
-        "description": "Explore the research projects and educational programs funded by the Board to advance Wisconsin's cranberry industry.",
+        "description": "Explore the research projects and educational programs funded by WCB to advance Wisconsin's cranberry industry.",
         "image": "/images/stock/cranberry-vines-summer.jpg",
         "imageAlt": "Cranberry vines growing in a Wisconsin bog during summer",
         "link": "/programs-research",
@@ -76,7 +76,7 @@
       },
       {
         "title": "Experience WI Cranberries",
-        "description": "Discover Wisconsin's state fruit — from bog to table. Learn about cranberry nutrition, recipes, and festivals.",
+        "description": "Discover Wisconsin's state fruit, from marsh to table. Learn about cranberry nutrition, recipes and festivals.",
         "image": "/images/stock/cranberry-closeup-4.jpg",
         "imageAlt": "Close-up of fresh ripe Wisconsin cranberries",
         "link": "/consumers",
@@ -87,7 +87,7 @@
   "investments": {
     "badge": "2025 Investments",
     "title": "$577,138 Reinvested in Wisconsin's Cranberry Industry",
-    "description": "The Wisconsin Cranberry Board has committed significant funding to advance the industry through research, education, and grower support programs.",
+    "description": "WCB has committed significant funding to advance the industry through research, education, and grower support programs.",
     "image": "/images/stock/cranberry-harvest-4.jpg",
     "imageAlt": "Wisconsin cranberry marsh during fall harvest season with equipment working the bog",
     "items": [

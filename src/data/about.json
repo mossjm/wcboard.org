@@ -2,18 +2,18 @@
   "hero": {
     "title": "Advancing Wisconsin's Cranberry Industry",
     "subtitle": "About the Board",
-    "description": "The Wisconsin Cranberry Board is a grower-led organization dedicated to strengthening the state's cranberry industry through strategic investments and collaborative partnerships.",
+    "description": "The Wisconsin Cranberry Board (WCB) is a grower-led organization dedicated to strengthening the state's cranberry industry through strategic investments and collaborative partnerships.",
     "image": "/images/stock/cranberry-marsh-2.jpg",
     "imageAlt": "Wisconsin cranberry marsh landscape with autumn colors"
   },
   "mission": {
     "title": "Our Mission",
-    "text": "The Wisconsin Cranberry Board's mission is to support and advance Wisconsin's cranberry industry through strategic investments in research, promotion, and education that benefit growers and strengthen the industry's long-term success."
+    "text": "WCB's mission is to support and advance Wisconsin's cranberry industry through strategic investments in research, promotion, and education that benefit growers and strengthen the industry's long-term success."
   },
   "purpose": {
     "title": "Our Purpose",
-    "text": "The Wisconsin Cranberry Board exists to responsibly invest grower assessment funds in programs and initiatives that support a competitive, sustainable, and resilient cranberry industry in Wisconsin.",
-    "intro": "Specifically, the Board:",
+    "text": "WCB exists to responsibly invest grower assessment funds in programs and initiatives that support a competitive, sustainable, and resilient cranberry industry in Wisconsin.",
+    "intro": "Specifically, WCB:",
     "items": [
       "Funds research that improves production practices, sustainability, and industry knowledge",
       "Supports promotion and education efforts that build understanding and demand for cranberries",
@@ -23,12 +23,12 @@
   },
   "funding": {
     "title": "Funding Structure",
-    "text": "The Wisconsin Cranberry Board is funded through a grower assessment collected on each barrel of cranberries produced in Wisconsin. For the 2025 growing season, board members unanimously voted to increase the assessment rate to <strong>25 cents per barrel</strong>, bolstering support for current and future priorities.",
+    "text": "WCB is funded through a grower assessment collected on each barrel of cranberries produced in Wisconsin. In 2025, board members unanimously voted to increase the assessment rate to <strong>25 cents per barrel</strong>, bolstering support for current and future priorities.",
     "assessmentRate": "25¢",
     "assessmentLabel": "Per Barrel Assessment",
-    "annualFunding": "~$577K",
-    "annualFundingLabel": "Annual Funding (2025)",
-    "note": "The Board frequently partners with industry organizations, universities, and other collaborators to co-fund projects, amplifying the impact of grower investments."
+    "annualFunding": "~$1M",
+    "annualFundingLabel": "Annual Funding",
+    "note": "WCB frequently partners with industry organizations, universities, and other collaborators to co-fund projects, amplifying the impact of grower investments."
   },
   "history": {
     "title": "A Rich Heritage",
@@ -38,24 +38,24 @@
       { "year": "1867", "description": "Wisconsin legislature passes the Cranberry Law, granting growers water management rights" },
       { "year": "1887", "description": "Wisconsin State Cranberry Growers Association (WSCGA) founded" },
       { "year": "1983", "description": "Wisconsin Cranberry Board established as a market order board under DATCP" },
-      { "year": "1994", "description": "Wisconsin becomes the #1 cranberry-producing state, surpassing Massachusetts" },
-      { "year": "2022", "description": "Wisconsin Cranberry Research Station grand opening near Black River Falls" },
+      { "year": "1994", "description": "Wisconsin becomes the #1 cranberry-producing state" },
+      { "year": "2022", "description": "Cranberry Innovation Center grand opening near Black River Falls" },
       { "year": "Today", "description": "31+ consecutive years as America's leading cranberry producer" }
     ]
   },
   "boardSection": {
     "badge": "Board of Directors",
     "title": "Grower-Led Governance",
-    "description": "The Wisconsin Cranberry Board is governed by seven Wisconsin cranberry growers, each elected to serve a three-year term. Board members volunteer their time to guide the strategic direction of the organization.",
+    "description": "WCB is governed by seven Wisconsin cranberry growers, each elected to serve a three-year term. Board members volunteer their time to guide the strategic direction of the organization.",
     "electionNote": "Elections are administered by DATCP. For questions about elections, contact the DATCP Market Orders Program at (608) 224-5046."
   },
   "staff": {
     "badge": "Staff",
     "title": "Board Administration",
-    "description": "Staff supports the Board's work by administering programs, coordinating projects, and managing day-to-day operations.",
+    "description": "Staff supports WCB's work by administering programs, coordinating projects, and managing day-to-day operations.",
     "name": "Grant Holley",
     "role": "Executive Director",
     "headshot": "/images/headshots/grant.jpg",
-    "bio": "Grant Holley serves as Executive Director, overseeing the Board's grant funding, research partnerships, and educational programs. He also serves as Executive Director of the Wisconsin State Cranberry Growers Association (WSCGA)."
+    "bio": "Grant Holley serves as Executive Director, overseeing WCB's grant funding, research partnerships, and educational programs. He also serves as Executive Director of the Wisconsin State Cranberry Growers Association (WSCGA)."
   }
 }

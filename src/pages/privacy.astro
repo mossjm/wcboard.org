@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+---
+
+<Layout title="Privacy Policy" description="Privacy policy for the Wisconsin Cranberry Board website, including information about data collection, cookies, and your rights.">
+
+  <Hero
+    title="Privacy Policy"
+    subtitle="Your Privacy"
+    description="How the Wisconsin Cranberry Board (WCB) website collects, uses, and protects your information."
+    image="/images/stock/cranberry-marsh-2.jpg"
+    imageAlt="Wisconsin cranberry marsh landscape"
+  />
+
+  <Breadcrumb items={[{ label: 'Privacy Policy' }]} />
+
+  <section class="py-20 lg:py-28 bg-warm-50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-10 text-earth-700 text-base leading-relaxed">
+
+        <div>
+          <h2 class="text-xl font-bold text-cranberry-950 font-heading mb-3">Overview</h2>
+          <p>
+            The Wisconsin Cranberry Board (WCB) is committed to protecting the privacy of visitors to this website. This policy describes what information we collect, how we use it, and your choices regarding that information. WCB is a state-affiliated organization administered under the Wisconsin Department of Agriculture, Trade and Consumer Protection (DATCP).
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-cranberry-950 font-heading mb-3">Information We Collect</h2>
+          <p class="mb-3">We may collect the following types of information:</p>
+          <ul class="list-disc pl-6 space-y-2">
+            <li><strong>Contact form submissions</strong> — When you use our contact form, we collect your name, email address, phone number (if provided), and message content. This information is used solely to respond to your inquiry.</li>
+            <li><strong>Analytics data</strong> — With your consent, we use Google Analytics to collect anonymized data about how visitors use this website, including pages visited, time on site, and general geographic location. This helps us improve the website experience.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-cranberry-950 font-heading mb-3">Cookies</h2>
+          <p>
+            This website uses cookies only with your explicit consent. When you first visit the site, you will be asked whether you accept or decline cookies. If you accept, Google Analytics cookies will be set to help us understand website usage patterns. If you decline, no tracking cookies will be placed. You can change your preference at any time by clearing your browser's local storage for this site.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-cranberry-950 font-heading mb-3">How We Use Your Information</h2>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>To respond to inquiries submitted through the contact form</li>
+            <li>To understand how visitors use the website so we can improve its content and usability</li>
+            <li>To comply with applicable state and federal regulations</li>
+          </ul>
+          <p class="mt-3">We do not sell, rent, or share your personal information with third parties for marketing purposes.</p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-cranberry-950 font-heading mb-3">Data Retention</h2>
+          <p>
+            Contact form submissions are retained only as long as necessary to respond to your inquiry. Analytics data is retained in accordance with Google Analytics' standard data retention policies.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-cranberry-950 font-heading mb-3">External Links</h2>
+          <p>
+            This website contains links to external websites, including those of partner organizations such as DATCP, WSCGA, and UW-Madison. WCB is not responsible for the privacy practices or content of these external sites. We encourage you to review the privacy policies of any external site you visit.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-cranberry-950 font-heading mb-3">Contact</h2>
+          <p>
+            If you have questions about this privacy policy or how your information is handled, please <a href="/contact" class="text-cranberry-700 underline hover:text-cranberry-800">contact us</a> or write to:
+          </p>
+          <address class="not-italic mt-3 text-earth-600">
+            Wisconsin Cranberry Board<br />
+            P.O. Box 1351<br />
+            Wisconsin Rapids, WI 54494<br />
+            <a href="tel:7154232070" class="text-cranberry-700 underline hover:text-cranberry-800">(715) 423-2070</a>
+          </address>
+        </div>
+
+        <div class="border-t border-warm-300 pt-6">
+          <p class="text-earth-500 text-sm">
+            <strong>Effective date:</strong> April 2026. This policy may be updated periodically. Changes will be posted on this page.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</Layout>

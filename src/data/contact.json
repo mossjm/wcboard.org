@@ -2,7 +2,7 @@
   "hero": {
     "title": "Contact Us",
     "subtitle": "Get in Touch",
-    "description": "Have questions about the Wisconsin Cranberry Board, grower assessments, research programs, or board elections? We're here to help.",
+    "description": "Have questions about the Wisconsin Cranberry Board (WCB), grower assessments, research programs, or board elections? We're here to help.",
     "image": "/images/stock/cranberry-harvest-1.jpg",
     "imageAlt": "Panoramic view of a Wisconsin cranberry bog during harvest"
   },
@@ -20,7 +20,7 @@
   },
   "datcp": {
     "title": "Election Questions?",
-    "description": "For questions about Board elections, nominations, and voting, contact the DATCP Market Orders Program.",
+    "description": "For questions about WCB elections, nominations, and voting, contact the DATCP Market Orders Program.",
     "phone": "(608) 224-5046",
     "phoneHref": "tel:6082245046",
     "orgName": "DATCP Market Orders Program",

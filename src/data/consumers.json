@@ -2,7 +2,7 @@
   "hero": {
     "title": "Wisconsin's State Fruit",
     "subtitle": "Experience Wisconsin Cranberries",
-    "description": "From bog to table — discover why Wisconsin cranberries are loved around the world for their taste, nutrition, and heritage.",
+    "description": "From marsh to table — discover why Wisconsin cranberries are loved around the world for their taste, nutrition, and heritage.",
     "image": "/images/stock/cranberry-closeup-3.jpg",
     "imageAlt": "Close-up of ripe Wisconsin cranberries ready for harvest"
   },
@@ -12,32 +12,32 @@
     "imageAlt": "Close-up view of fresh ripe Wisconsin cranberries during harvest season",
     "facts": [
       {
-        "emoji": "\ud83c\udf52",
+        "icon": "map-pin",
         "title": "Native to Wisconsin",
         "description": "Cranberries are native to Wisconsin's marshlands and have been harvested by Native Americans for centuries for food, medicine, and fabric dye."
       },
       {
-        "emoji": "\ud83c\udfc6",
+        "icon": "trophy",
         "title": "#1 in America",
-        "description": "Wisconsin has been the nation's leading cranberry producer for over 31 consecutive years, producing about 60% of the U.S. crop."
+        "description": "Wisconsin has been the nation's leading cranberry producer for over 31 consecutive years, producing around 2/3 of the U.S. crop annually."
       },
       {
-        "emoji": "\ud83e\udd64",
+        "icon": "heart",
         "title": "Rich in Vitamin C",
         "description": "One cup of raw cranberries provides 25% of your daily requirement of vitamin C. Sailors once ate cranberries to prevent scurvy at sea."
       },
       {
-        "emoji": "\ud83c\udf3f",
+        "icon": "shield",
         "title": "Antioxidant Powerhouse",
         "description": "Cranberries are well known for being rich in antioxidants and other beneficial compounds that support health and wellness."
       },
       {
-        "emoji": "\ud83c\udfe1",
+        "icon": "home",
         "title": "Family-Farmed",
         "description": "Wisconsin's 250+ cranberry operations are primarily family farms, some of which have been in operation for over 100 years."
       },
       {
-        "emoji": "\ud83d\udc26",
+        "icon": "bird",
         "title": "\"Crane Berry\"",
         "description": "European settlers named the fruit \"crane berry\" because the plant's stem and blossom resembled a sandhill crane."
       }

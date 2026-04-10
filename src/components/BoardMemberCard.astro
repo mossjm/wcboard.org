@@ -14,8 +14,8 @@ const { name, position, location, term, headshot, bio } = Astro.props;
 const initials = name.split(' ').map(n => n[0]).join('');
 ---
 
-<article class="bg-warm-50 rounded-2xl p-6 border border-warm-200 hover:border-cranberry-300 hover:shadow-md transition-all duration-300">
-  <div class="flex flex-col items-center text-center">
+<article class="bg-warm-50 rounded-2xl p-6 border border-warm-200 hover:border-cranberry-300 hover:shadow-md transition-all duration-300 h-full flex flex-col">
+  <div class="flex flex-col items-center text-center flex-1">
     <!-- Headshot or Placeholder -->
     {headshot ? (
       <img 

@@ -2,8 +2,8 @@
 name: "Amy Gebhardt"
 position: "Treasurer"
 location: "Warrens"
-term: "3-year term"
+term: "Term began Sept. 2023"
 headshot: "/images/headshots/amy.jpg"
-bio: "Amy Gebhardt serves as Treasurer of the Wisconsin Cranberry Board, representing growers in the Warrens area."
+bio: "Amy Gebhardt serves as Treasurer of the Wisconsin Cranberry Board (WCB), representing growers in the Warrens area."
 order: 2
 ---

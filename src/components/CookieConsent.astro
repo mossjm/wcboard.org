@@ -1,0 +1,77 @@
+---
+// TODO: Replace with actual Google Analytics Measurement ID from Holly
+const GA_TRACKING_ID = 'G-XXXXXXXXXX';
+---
+
+<div
+  id="cookie-consent-banner"
+  class="hidden fixed bottom-0 inset-x-0 z-50 bg-cranberry-950 border-t border-cranberry-800 shadow-2xl"
+  role="dialog"
+  aria-label="Cookie consent"
+  aria-describedby="cookie-consent-text"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center gap-4">
+    <p id="cookie-consent-text" class="text-cranberry-100 text-sm flex-1">
+      This website uses cookies to analyze traffic and improve your experience. See our
+      <a href="/privacy" class="underline hover:text-white transition-colors">Privacy Policy</a>
+      for details.
+    </p>
+    <div class="flex gap-3 flex-shrink-0">
+      <button
+        id="cookie-decline"
+        type="button"
+        class="px-5 py-2 text-sm font-medium text-cranberry-200 border border-cranberry-700 rounded-lg hover:bg-cranberry-900 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+      >
+        Decline
+      </button>
+      <button
+        id="cookie-accept"
+        type="button"
+        class="px-5 py-2 text-sm font-medium text-cranberry-950 bg-white rounded-lg hover:bg-cranberry-50 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+      >
+        Accept
+      </button>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ GA_TRACKING_ID }}>
+  const STORAGE_KEY = 'cookie-consent';
+
+  function loadGA() {
+    if (GA_TRACKING_ID === 'G-XXXXXXXXXX') return; // Skip if placeholder
+    const script = document.createElement('script');
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`;
+    script.async = true;
+    document.head.appendChild(script);
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', GA_TRACKING_ID);
+  }
+
+  function hideBanner() {
+    const banner = document.getElementById('cookie-consent-banner');
+    if (banner) banner.classList.add('hidden');
+  }
+
+  // Check existing consent
+  const consent = localStorage.getItem(STORAGE_KEY);
+  if (consent === 'accepted') {
+    loadGA();
+  } else if (!consent) {
+    const banner = document.getElementById('cookie-consent-banner');
+    if (banner) banner.classList.remove('hidden');
+  }
+
+  document.getElementById('cookie-accept')?.addEventListener('click', () => {
+    localStorage.setItem(STORAGE_KEY, 'accepted');
+    hideBanner();
+    loadGA();
+  });
+
+  document.getElementById('cookie-decline')?.addEventListener('click', () => {
+    localStorage.setItem(STORAGE_KEY, 'declined');
+    hideBanner();
+  });
+</script>
